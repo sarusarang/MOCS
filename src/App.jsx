@@ -13,7 +13,7 @@ function App() {
 
     <>
 
-      <div className="position-sticky sticky-top shadow border  z-5 w-100">
+      <div className="position-sticky sticky-top  z-5 w-100 shadow">
 
 
         <Header />
