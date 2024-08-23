@@ -93,7 +93,7 @@ function Header() {
 
             <div className='dropdown'>
 
-              <Nav.Link href="#link" ><i class="fa-solid fa-user fa-lg"></i></Nav.Link>
+              <Nav.Link  ><i class="fa-solid fa-user fa-lg"></i></Nav.Link>
 
               <div className='dropdown-content'>
 
