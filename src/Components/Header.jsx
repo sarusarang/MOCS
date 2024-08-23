@@ -87,7 +87,7 @@ function Header() {
 
 
 
-            <Link to={'/'} onClick={handleNavClick}><i class="fa-solid fa-cart-shopping fa-lg"></i></Link>
+            <Link to={'/cart'} onClick={handleNavClick}><i class="fa-solid fa-cart-shopping fa-lg"></i></Link>
 
 
 
