@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Landing from './Pages/Landing'
 import Auth from './Pages/Auth'
 import Header from './Components/Header'
+import Footer from './Components/Footer'
 
 
 function App() {
@@ -32,9 +33,7 @@ function App() {
       </Routes>
 
 
-
-
-
+      <Footer />
 
 
     </>
