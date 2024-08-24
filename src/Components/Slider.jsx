@@ -19,13 +19,13 @@ function Slider() {
         <>
 
 
-            <section className='w-100 pt-4'>
+            <section className='w-100 pt-3 container' >
 
 
                 <Carousel data-bs-theme="dark" controls={false} indicators={false} slide={true}>
 
 
-                    <Carousel.Item>
+                    <Carousel.Item >
 
                         <img
                             className="d-block w-100"

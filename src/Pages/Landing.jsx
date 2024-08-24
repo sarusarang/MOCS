@@ -14,11 +14,11 @@ function Landing() {
 
 
             {/* Sub-Head */}
-            <div className='w-100 bg-both'>
+            {/* <div className='w-100 bg-both'>
 
                 <SubHead />
 
-            </div>
+            </div> */}
 
 
             {/* Slider */}
@@ -30,7 +30,7 @@ function Landing() {
             </div>
 
             {/* Hero1 */}
-            <div className='w-100 bg-both pt-5'>
+            <div className='w-100 bg-both'>
 
                 <Hero />
 
