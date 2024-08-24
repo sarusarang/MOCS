@@ -55,21 +55,21 @@ function Header() {
 
             <Link to={'/'} onClick={handleNavClick}>Home</Link>
 
-
             <Link to={'/'} onClick={handleNavClick}>New Arrivals</Link>
 
+            <Link to={'/'} onClick={handleNavClick}>Gents</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>Our Shops</Link>
+            <Link to={'/'} onClick={handleNavClick}>Ladies</Link>
 
+            <Link to={'/'} onClick={handleNavClick}>Boys & Girls</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>About Us</Link>
+            <Link to={'/'} onClick={handleNavClick}>Kids</Link>
+
 
           </Nav>
 
 
         </Navbar.Collapse>
-
-
 
 
 
@@ -79,9 +79,10 @@ function Header() {
           <Nav className="navigation">
 
 
+
             <Link to={'/'} onClick={handleNavClick} className='search-none'>
 
-              <input type="text" placeholder='Search' className='form-control' />
+              <input type="text" placeholder='Search' className='form-control w-100' />
 
             </Link>
 

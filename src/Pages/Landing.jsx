@@ -1,5 +1,4 @@
 import React from 'react'
-import SubHead from '../Components/SubHead'
 import Slider from '../Components/Slider'
 import Hero from '../Components/Hero'
 
@@ -11,14 +10,6 @@ function Landing() {
 
 
         <>
-
-
-            {/* Sub-Head */}
-            {/* <div className='w-100 bg-both'>
-
-                <SubHead />
-
-            </div> */}
 
 
             {/* Slider */}

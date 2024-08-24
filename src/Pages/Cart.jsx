@@ -15,7 +15,7 @@ function Cart() {
 
 
 
-            <section className="mt-4  mb-5 Cart-paddin pt-5">
+            <section className=" pb-5 Cart-paddin pt-5">
 
 
                 <div className="container">

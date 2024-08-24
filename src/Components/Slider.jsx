@@ -19,7 +19,7 @@ function Slider() {
         <>
 
 
-            <section className='w-100 pt-3 container' >
+            <section className='w-100 pt-4 container' >
 
 
                 <Carousel data-bs-theme="dark" controls={false} indicators={false} slide={true}>

@@ -1,6 +1,25 @@
 import React from 'react'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 
 function Hero() {
+
+
+
+
+    useEffect(() => {
+
+        AOS.init({
+
+            duration: 400,
+            easing: "ease-out-cubic",
+        })
+
+        
+
+    }, []);
+
 
 
 
@@ -10,49 +29,42 @@ function Hero() {
         <>
 
 
-            <section className='container pt-5 pb-5 p-5 hero'>
+            <section className='mt-5 pb-5 p-5 hero'>
 
 
-                <h3 className='text-center'>
+                <div className='container'>
 
 
-                    <span className='line'></span>
-                    
-                    COLLECTIONS OF
-
-                    <span className='line'></span>
-
-                </h3>
+                    <h3 className='text-center'>COLLECTIONS OF</h3>
 
 
-                <div className='row'>
+                    <div className='row'>
 
 
-                    <div className='col-md-3 hero-box'>
+                        <div className='col-12 hero-box' data-aos="fade-up" data-aos-duration="600">
 
-                        <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060400_Web_Tiles_New_06_10_23___1.jpg" className='img-fluid' alt="img" />
+                            <img src="/83317419_2310-w056-n005-393A-p30-393.jpg" className='img-fluid' alt="img" />
+
+                        </div>
+
+
+
+                        <div className='col-12 hero-box' data-aos="fade-right" data-aos-duration="600">
+
+                            <img src="/22890787_6554697.jpg" className='img-fluid' alt="img" />
+
+                        </div>
+
+
+
+                        <div className='col-12 hero-box' data-aos="fade-left" data-aos-duration="600">
+
+                            <img src="/21267341_2110.w015.n001.586B.p15.586.jpg" className='img-fluid' alt="img" />
+
+                        </div>
+
 
                     </div>
-
-                    <div className='col-md-3 hero-box'>
-
-                        <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060401_Web_Tiles_New_06_10_23___2.jpg" className='img-fluid' alt="img" />
-
-                    </div>
-
-                    <div className='col-md-3 hero-box'>
-
-                        <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060402_Web_Tiles_New_06_10_23___3.jpg" className='img-fluid' alt="img" />
-
-                    </div>
-
-
-                    <div className='col-md-3 hero-box'>
-
-                        <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060406_Web_Tiles_New_06_10_23___4.jpg" className='img-fluid' alt="img" />
-
-                    </div>
-
 
                 </div>
 

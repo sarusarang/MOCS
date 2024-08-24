@@ -15,7 +15,7 @@ function App() {
 
     <>
 
-      <div className="position-sticky sticky-top  z-5 w-100 shadow">
+      <div className="position-sticky sticky-top  z-5 w-100 header-shadow">
 
 
         <Header />
