@@ -31,7 +31,7 @@ function HeroTwo() {
         <>
 
 
-            <section className='pb-5 hero2'>
+            <section className='pb-5 hero2 w-100'>
 
 
                 <div className='container hero2-padding'>

@@ -84,7 +84,7 @@ footer {
 .hero {
 
   border-top: 3px dotted #cccc;
-  padding: 3rem;
+  padding: 3rem 14rem 3rem 14rem !important;
 
 }
 
@@ -112,7 +112,7 @@ footer {
 
   margin-top: 1rem !important;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   border-radius: 5px 20px 5px;
   cursor: pointer;
 
@@ -137,7 +137,7 @@ footer {
 
 }
 
-.hero2-padding{
+.hero2-padding {
 
   padding: 3rem 7rem 2rem 7rem !important;
 
@@ -167,7 +167,7 @@ footer {
 
 .hero2-box img:hover {
 
-  transform: scale(110%); 
+  transform: scale(110%);
 
 }
 
@@ -180,13 +180,13 @@ footer {
 
 
 /* Hero3 */
-.hero-3{
+.hero-3 {
 
   padding: 1rem 5rem 1rem 5rem !important;
 
 }
 
-.hero-3 p{
+.hero-3 p {
 
   text-align: center;
   font-weight: 400;
@@ -195,13 +195,13 @@ footer {
 
 }
 
-.hero-3 h3{
+.hero-3 h3 {
 
   font-weight: 700;
 
 }
 
-.hero-3 img{
+.hero-3 img {
 
   border-radius: 1.5rem;
 
@@ -225,6 +225,13 @@ footer {
 
 
 
+  .hero {
+
+    padding: 3rem 10rem 3rem 10rem !important;
+
+  }
+
+
 
 
 }
@@ -243,9 +250,15 @@ footer {
 
   .box-text h1 {
 
-   
+
     font-size: 1.5rem;
-  
+
+  }
+
+  .hero {
+
+    padding: 3rem 10rem 3rem 10rem !important;
+
   }
 
 
@@ -263,15 +276,21 @@ footer {
 
   .box-text h1 {
 
-   
+
     font-size: 1.5rem;
-  
+
   }
 
-  .hero2-padding{
+  .hero2-padding {
 
     padding: 3rem 0rem 2rem 0rem !important;
-  
+
+  }
+
+  .hero {
+
+    padding: 3rem 5rem 3rem 5rem !important;
+
   }
 
 }
@@ -286,18 +305,25 @@ footer {
 
   }
 
+  
+  .hero {
+
+    padding: 3rem 10rem 3rem 10rem !important;
+
+  }
+
 
   .box-text h1 {
 
-   
+
     font-size: 1.9rem;
-  
+
   }
 
-  .hero2-padding{
+  .hero2-padding {
 
     padding: 3rem 0rem 2rem 0rem !important;
-  
+
   }
 
 
@@ -349,26 +375,32 @@ footer {
 
   }
 
+  .hero {
+
+    padding: 3rem 5rem 3rem 5rem !important;
+
+  }
+
 
 
   .box-text h1 {
 
-   
+
     font-size: 1.9rem;
-  
+
   }
 
-  .hero2-padding{
+  .hero2-padding {
 
     padding: 3rem 2rem 2rem 2rem !important;
-  
+
   }
 
-  .hero-3 h3{
+  .hero-3 h3 {
 
     font-weight: 700;
     margin-top: 2rem;
-  
+
   }
 
 
@@ -417,6 +449,14 @@ footer {
 
   }
 
+  
+  .hero {
+
+    padding: 3rem 3rem 3rem 3rem !important;
+
+  }
+
+
   .hero h3 {
 
     margin-bottom: 0rem !important;
@@ -425,7 +465,7 @@ footer {
 
   }
 
-  .hero{
+  .hero {
 
     padding: 1rem;
 
@@ -434,24 +474,24 @@ footer {
 
   .box-text h1 {
 
-   
+
     font-size: 1.2rem;
-  
+
   }
 
-  .hero2-padding{
+  .hero2-padding {
 
     padding: 3rem 2rem 2rem 2rem !important;
-  
+
   }
 
-  .hero-3 h3{
+  .hero-3 h3 {
 
     font-weight: 700;
     margin-top: 2rem;
-  
+
   }
-  
+
 
 
 

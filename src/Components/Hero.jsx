@@ -39,25 +39,38 @@ function Hero() {
                     <div className='row'>
 
 
-                        <div className='col-12 hero-box' data-aos="fade-up" data-aos-duration="600">
+                        <div className='col-md-4 hero-box ' data-aos="fade-right" data-aos-duration="600">
 
-                            <img src="/83317419_2310-w056-n005-393A-p30-393.jpg" className='img-fluid' alt="img" />
-
-                        </div>
-
-
-
-                        <div className='col-12 hero-box' data-aos="fade-right" data-aos-duration="600">
-
-                            <img src="/22890787_6554697.jpg" className='img-fluid' alt="img" />
+                            <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060400_Web_Tiles_New_06_10_23___1.jpg" className='img-fluid' alt="img" />
 
                         </div>
 
 
 
-                        <div className='col-12 hero-box' data-aos="fade-left" data-aos-duration="600">
+                        <div className='col-md-4 hero-box' data-aos="fade-up" data-aos-duration="600">
 
-                            <img src="/21267341_2110.w015.n001.586B.p15.586.jpg" className='img-fluid' alt="img" />
+                            <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060400_Web_Tiles_New_06_10_23___1.jpg" className='img-fluid' alt="img" />
+
+                        </div>
+
+
+
+                        <div className='col-md-4 hero-box' data-aos="fade-left" data-aos-duration="600">
+
+                            <img src="https://cdn.khadims.com/live/image/khadims/banner/554_202310060400_Web_Tiles_New_06_10_23___1.jpg" className='img-fluid' alt="img" />
+
+                        </div>
+
+
+                        <div className='col-md-6 hero-box' data-aos="fade-right" data-aos-duration="600">
+
+                            <img src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
+
+                        </div>
+
+                        <div className='col-md-6 hero-box' data-aos="fade-left" data-aos-duration="600">
+
+                            <img src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                         </div>
 
