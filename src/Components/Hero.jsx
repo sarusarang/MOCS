@@ -16,8 +16,6 @@ function Hero() {
             easing: "ease-out-cubic",
         })
 
-        
-
     }, []);
 
 
@@ -29,7 +27,7 @@ function Hero() {
         <>
 
 
-            <section className='mt-5 pb-5 p-5 hero'>
+            <section className='mt-5 pb-5 hero'>
 
 
                 <div className='container'>

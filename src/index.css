@@ -7,7 +7,7 @@
 
 }
 
-.header-shadow{
+.header-shadow {
 
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
@@ -75,33 +75,139 @@ footer {
 
 }
 
-.hero-box{
+.hero-box {
 
   margin-bottom: 3rem;
 
 }
 
-.hero{
+.hero {
 
   border-top: 3px dotted #cccc;
+  padding: 3rem;
 
 }
 
 .line {
   display: inline-block;
-  width: 400px; /* Adjust the width as needed */
-  height: 2px; /* Adjust the height as needed */
-  background-color: #ccc; /* Adjust the color as needed */
-  margin: 0 20px; /* Adjust the spacing between the text and the lines */
+  width: 400px;
+  height: 2px;
+  background-color: #ccc;
+  margin: 0 20px;
   vertical-align: middle;
 }
 
 
-.carousel-inner{
+.carousel-inner {
 
   border-radius: 1rem;
 
 }
+
+
+/* Hero2 */
+
+.hero2-box {
+
+
+  margin-top: 1rem !important;
+  position: relative;
+  overflow: hidden; 
+  border-radius: 5px 20px 5px;
+  cursor: pointer;
+
+
+}
+
+.box-text {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+}
+
+.box-text h1 {
+
+  color: #fff;
+  font-weight: 500;
+  font-size: 2rem;
+
+}
+
+.hero2-padding{
+
+  padding: 3rem 7rem 2rem 7rem !important;
+
+}
+
+.hero2 {
+
+  border-top: 3px dotted #cccc;
+
+
+}
+
+.hero2 h3 {
+
+  font-weight: 700;
+  text-align: center;
+
+}
+
+.hero2-box img {
+
+  border-radius: 5px 20px 5px;
+  transition: all ease-in-out 0.6s;
+
+
+}
+
+.hero2-box img:hover {
+
+  transform: scale(110%); 
+
+}
+
+
+
+.hero2-box img {
+  filter: brightness(75%);
+}
+
+
+
+/* Hero3 */
+.hero-3{
+
+  padding: 1rem 5rem 1rem 5rem !important;
+
+}
+
+.hero-3 p{
+
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.1rem;
+
+
+}
+
+.hero-3 h3{
+
+  font-weight: 700;
+
+}
+
+.hero-3 img{
+
+  border-radius: 1.5rem;
+
+}
+
+
 
 
 /* Resposive */
@@ -110,12 +216,15 @@ footer {
 
   .line {
     display: inline-block;
-    width: 300px; 
-    height: 2px; 
-    background-color: #ccc; 
-    margin: 0 20px; 
+    width: 300px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 20px;
     vertical-align: middle;
   }
+
+
+
 
 
 }
@@ -127,8 +236,16 @@ footer {
   .line {
 
     display: inline-block;
-    width: 250px; /* Adjust the width as needed */
+    width: 250px;
+    /* Adjust the width as needed */
+
+  }
+
+  .box-text h1 {
+
    
+    font-size: 1.5rem;
+  
   }
 
 
@@ -141,9 +258,21 @@ footer {
 
   .line {
     display: none !important;
-    
+
   }
 
+  .box-text h1 {
+
+   
+    font-size: 1.5rem;
+  
+  }
+
+  .hero2-padding{
+
+    padding: 3rem 0rem 2rem 0rem !important;
+  
+  }
 
 }
 
@@ -154,7 +283,21 @@ footer {
 
   .line {
     display: none !important;
-    
+
+  }
+
+
+  .box-text h1 {
+
+   
+    font-size: 1.9rem;
+  
+  }
+
+  .hero2-padding{
+
+    padding: 3rem 0rem 2rem 0rem !important;
+  
   }
 
 
@@ -176,7 +319,7 @@ footer {
 
   .line {
     display: none;
-   
+
   }
 
   .foot-logo {
@@ -208,6 +351,27 @@ footer {
 
 
 
+  .box-text h1 {
+
+   
+    font-size: 1.9rem;
+  
+  }
+
+  .hero2-padding{
+
+    padding: 3rem 2rem 2rem 2rem !important;
+  
+  }
+
+  .hero-3 h3{
+
+    font-weight: 700;
+    margin-top: 2rem;
+  
+  }
+
+
 
 }
 
@@ -229,7 +393,7 @@ footer {
 
   .line {
     display: none;
-   
+
   }
 
   .foot-logo {
@@ -260,6 +424,35 @@ footer {
 
 
   }
+
+  .hero{
+
+    padding: 1rem;
+
+  }
+
+
+  .box-text h1 {
+
+   
+    font-size: 1.2rem;
+  
+  }
+
+  .hero2-padding{
+
+    padding: 3rem 2rem 2rem 2rem !important;
+  
+  }
+
+  .hero-3 h3{
+
+    font-weight: 700;
+    margin-top: 2rem;
+  
+  }
+  
+
 
 
 }
