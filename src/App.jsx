@@ -5,9 +5,14 @@ import Auth from './Pages/Auth'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Pages/Cart'
+import SingleProduct from './Pages/SingleProduct'
 
 
 function App() {
+
+
+
+  
 
 
   return (
@@ -23,18 +28,20 @@ function App() {
 
       </div>
 
+
       <Routes>
-
-
 
         <Route path='/' element={<Landing />} />
 
         <Route path='/auth' element={<Auth />} />
-        
-        <Route path='/cart' element = {<Cart/>}/>
 
+        <Route path='/cart' element={<Cart />} />
+
+        <Route path='/pro' element={<SingleProduct />} />
 
       </Routes>
+
+
 
 
       <Footer />

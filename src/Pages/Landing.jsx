@@ -21,6 +21,8 @@ function Landing() {
 
             </div>
 
+            
+
             {/* Hero1 */}
             <div className='w-100 bg-both'>
 
@@ -43,10 +45,6 @@ function Landing() {
                 <HeroThree />
 
             </div>
-
-
-
-
 
         </>
 
