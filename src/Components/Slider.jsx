@@ -31,6 +31,7 @@ function Slider() {
                             className="d-block w-100"
                             src="/Baner 3000x992-04.jpg"
                             alt="First slide"
+                            loading='lazy'
                         />
 
                     </Carousel.Item>
@@ -42,6 +43,7 @@ function Slider() {
                             className="d-block w-100"
                             src="/Baner 3000x992-03.jpg"
                             alt="Second slide"
+                            loading='lazy'
                         />
 
                     </Carousel.Item>
@@ -53,6 +55,7 @@ function Slider() {
                             className="d-block w-100"
                             src="/Baner 3000x992-02.jpg"
                             alt="Second slide"
+                            loading='lazy'
                         />
 
                     </Carousel.Item>
@@ -64,6 +67,7 @@ function Slider() {
                             className="d-block w-100"
                             src="/Baner 3000x992-01.jpg"
                             alt="Second slide"
+                            loading='lazy'
                         />
 
                     </Carousel.Item>
