@@ -29,7 +29,7 @@ function Slider() {
 
                         <img
                             className="d-block w-100"
-                            src="https://cdn.khadims.com/image/catalog/brandstore/khadims/858-1717957800-newbannermonsoonweb.jpg"
+                            src="/Baner 3000x992-04.jpg"
                             alt="First slide"
                         />
 
@@ -40,7 +40,29 @@ function Slider() {
 
                         <img
                             className="d-block w-100"
-                            src="https://cdn.khadims.com/image/catalog/brandstore/khadims/554-1706553000-sale_desk.jpg"
+                            src="/Baner 3000x992-03.jpg"
+                            alt="Second slide"
+                        />
+
+                    </Carousel.Item>
+
+
+                    <Carousel.Item>
+
+                        <img
+                            className="d-block w-100"
+                            src="/Baner 3000x992-02.jpg"
+                            alt="Second slide"
+                        />
+
+                    </Carousel.Item>
+
+
+                    <Carousel.Item>
+
+                        <img
+                            className="d-block w-100"
+                            src="/Baner 3000x992-01.jpg"
                             alt="Second slide"
                         />
 

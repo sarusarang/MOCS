@@ -29,14 +29,14 @@ function Header() {
 
     <Navbar expand="lg" className="header" collapseOnSelect expanded={expanded}>
 
-      <Container className='contain'>
+      <Container className='contain p-3'>
 
 
         <div className='nav-logo'>
 
           <a href="/">
 
-            <img src="/NAV-LOGO.png" className='img-fluid' alt="logo" />
+            <img src="/Mocs Logo.png" className='img-fluid' alt="logo" />
 
           </a>
 
