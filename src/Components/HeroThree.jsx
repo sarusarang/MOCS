@@ -29,7 +29,7 @@ function HeroThree() {
 
             <section className='pt-5 pb-5' style={{borderTop:'3px dotted #ccc'}}>
 
-                <div className='container hero-3'>
+                <div className='container hero-3 p-5'>
 
 
                     <div className='row'>
@@ -37,7 +37,7 @@ function HeroThree() {
 
                         <div className='col-md-6' data-aos="fade-right" data-aos-duration="600">
 
-                            <img src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="" />
+                            <img src="/About Us.jpg" className='img-fluid' alt="" />
 
                         </div>
 
