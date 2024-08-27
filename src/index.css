@@ -309,6 +309,16 @@ footer {
 
 
 
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+
+
 
 /* Resposive */
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {

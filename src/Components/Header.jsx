@@ -55,15 +55,15 @@ function Header() {
 
             <Link to={'/'} onClick={handleNavClick}>Home</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>New Arrivals</Link>
+            <Link to={'/fil'} onClick={handleNavClick}>New Arrivals</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>Gents</Link>
+            <Link to={'/fil'} onClick={handleNavClick}>Gents</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>Ladies</Link>
+            <Link to={'/fil'} onClick={handleNavClick}>Ladies</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>Boys & Girls</Link>
+            <Link to={'/fil'} onClick={handleNavClick}>Boys & Girls</Link>
 
-            <Link to={'/'} onClick={handleNavClick}>Kids</Link>
+            <Link to={'/fil'} onClick={handleNavClick}>Kids</Link>
 
 
           </Nav>

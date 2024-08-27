@@ -1,19 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 
 function Cart() {
 
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+    }, [])
 
 
     return (
 
 
 
-
-
         <>
-
-
 
             <section className=" pb-5 Cart-paddin pt-5">
 
@@ -133,7 +136,7 @@ function Cart() {
                         <div className="col-lg-3">
 
 
-                            <div className="card shadow" style={{border:'none',borderRadius:'1rem'}}>
+                            <div className="card shadow" style={{ border: 'none', borderRadius: '1rem' }}>
 
                                 <div className="card-body bg-white">
 

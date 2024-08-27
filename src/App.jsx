@@ -6,6 +6,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Pages/Cart'
 import SingleProduct from './Pages/SingleProduct'
+import Filter from './Pages/Filter'
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
         <Route path='/cart' element={<Cart />} />
 
         <Route path='/pro' element={<SingleProduct />} />
+
+        <Route path='/fil' element={<Filter />} />
 
       </Routes>
 
