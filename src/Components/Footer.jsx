@@ -246,7 +246,7 @@ function Footer() {
           ></a>
 
 
-          <a data-mdb-ripple-init className="btn m-1" href="https://x.com/footwear12887" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn m-1" href="https://x.com/mocsfootwear" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fa-brands fa-x-twitter text-white"></i></a>
 
           <a data-mdb-ripple-init className="btn  m-1" href="https://www.instagram.com/mocsfootwear/?hl=en" role="button" target='_blank' style={{ borderRadius: '5rem' }}
