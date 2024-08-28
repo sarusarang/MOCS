@@ -16,7 +16,7 @@ function Footer() {
 
       <footer className="text-center text-lg-start text-white py-1 px-5">
 
-        <section className="p-5 pt-0" style={{ borderBottom: '1px solid #414141' }}>
+        <section className="p-5 pb-0 pt-0" style={{ borderBottom: '1px solid #414141' }}>
 
           <div className="container text-center text-md-start mt-5">
 
