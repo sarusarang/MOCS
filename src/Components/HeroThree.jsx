@@ -48,7 +48,7 @@ function HeroThree() {
                             <h3>About Us</h3>
 
 
-                            <p>MOCS Foot Care, founded in Kozhikode by Azhar R.M. in 2014, began with handmade ladies' belly shoes and has since expanded its product range and production capacity. Initially focused on Kerala, the company now distributes 2,000 pairs daily across several Indian states and internationally. MOCS is recognized for quality and trendy designs and aims to enhance its global brand value by launching premium products.</p>
+                            <p>MOCS Foot Care, founded in Kozhikode by Azhar R.M. in 2014, began with handmade ladies' belly shoes and has since expanded its product range and production capacity. Initially focused on Kerala, the company now distributes 20,000 pairs daily across several Indian states and internationally. MOCS is recognized for quality and trendy designs and aims to enhance its global brand value by launching premium products.</p>
 
                         </div>
 
