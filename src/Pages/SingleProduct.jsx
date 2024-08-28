@@ -229,7 +229,7 @@ function SingleProduct() {
             <div className="row gx-4">
 
               {/* SPECS */}
-              <div className="col-lg-8 mb-4">
+              <div className="col-lg-12 mb-4">
 
                 <div className='border rounded-2 shadow px-3 py-2 bg-white'>
 
@@ -426,73 +426,7 @@ function SingleProduct() {
 
 
 
-              {/* Similar Products */}
-              <div className="col-lg-4">
-
-                <div className="px-0 rounded-2 shadow">
-
-                  <div className="card">
-
-                    <div className="card-body bg-white">
-
-                      <h5 className="card-title text-dark mb-4">Recommended Products</h5>
-
-
-                      <div className="d-flex mb-3">
-
-                        <a href="#" className="me-3">
-                          <img src="https://contents.mediadecathlon.com/p180505/563a4fb110e56f2b0c0c711bc8678121/p180505.jpg" style={{ minWidth: '96px', height: '96px' }} className="img-md" />
-                        </a>
-
-
-                        <div className="info">
-                          <a href="#" className="nav-link mb-1">
-                            Footware<br />
-
-                          </a>
-                          <strong className="text-dark"> ₹2000</strong>
-                        </div>
-
-
-                      </div>
-
-
-
-                      <div className='d-flex justify-content-center mb-5 mt-4'>
-
-                        <i class="fa-solid fa-plus fa-2xl"></i>
-
-                      </div>
-
-
-                      <div className="d-flex mb-3">
-
-                        <a href="#" className="me-3">
-                          <img src="https://contents.mediadecathlon.com/p180505/563a4fb110e56f2b0c0c711bc8678121/p180505.jpg" style={{ minWidth: '96px', height: '96px' }} className="img-md" />
-                        </a>
-
-
-                        <div className="info">
-
-                          <a href="#" className="nav-link mb-1">
-                            Footware<br />
-
-                          </a>
-
-                          <strong className="text-dark"> ₹100</strong>
-
-                        </div>
-
-
-                      </div>
-
-                      <button className='btn btn-addcart shadow w-100 mt-4'>Add to Cart</button>
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+        
 
             </div>
 

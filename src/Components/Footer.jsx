@@ -24,7 +24,7 @@ function Footer() {
 
 
               {/* Shop At */}
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 foot-main">
 
                 <h6 className="text-uppercase fw-bold mb-4">
                   SHOP AT MOCS
@@ -68,7 +68,7 @@ function Footer() {
 
 
               {/* Info */}
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 foot-main">
 
                 <h6 className="text-uppercase fw-bold mb-4">
                   COMPANY INFO
@@ -104,7 +104,7 @@ function Footer() {
 
 
               {/* E-shop */}
-              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 foot-main">
 
                 <h6 className="text-uppercase fw-bold mb-4">
                   E-SHOPPING
@@ -139,7 +139,7 @@ function Footer() {
 
 
               {/* E-shop */}
-              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 foot-main">
 
                 <h6 className="text-uppercase fw-bold mb-4">
                   CUSTOMER SERVICE
@@ -157,6 +157,51 @@ function Footer() {
                   <Link to={'/'} className='text-reset foot-link'>Store Locator</Link>
 
                 </p>
+
+
+
+
+
+
+              </div>
+
+
+
+
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 foot-main">
+
+                <h6 className="text-uppercase fw-bold mb-4">
+                  Get In Touch
+                </h6>
+
+
+
+                <p>
+
+                  <i class="fa-solid fa-house-chimney"></i> Corporate Office MOCS Foot Care  7QJ8+42H, West Hill, Kozhikode, Kerala 673005
+
+                </p>
+
+
+                <p>
+
+                  <a href="https://wa.me/+917994550834" className='nav-link' target='_blank'> <i class="fa-solid fa-brands fa-whatsapp me-2 fa-lg"></i>  +91 7994550834</a>
+
+                </p>
+
+
+                <p>
+
+                  <Link to={'/'} className='text-reset foot-link'><a className='nav-link' target='_blank'> <i class="fa-solid fa-phone me-2"></i>0495 485 5060</a></Link>
+
+                </p>
+
+                <p>
+
+                  <a href="mailto:support@mocs.in" className='nav-link' target='_blank'><i class="fa-solid fa-envelope me-2"></i> support@mocs.in</a>
+
+                </p>
+
 
 
               </div>

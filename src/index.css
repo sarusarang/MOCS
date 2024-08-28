@@ -74,6 +74,12 @@ footer {
 
 }
 
+.foot-main p{
+
+  margin-bottom: 0.9rem !important; 
+
+}
+
 .foot-link:hover {
 
   color: #ccc !important;
