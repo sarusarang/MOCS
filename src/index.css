@@ -10,12 +10,13 @@
   scroll-behavior: smooth;
 
 
+
 }
 
 body {
 
 
-  font-family: "Bebas Neue", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 
 
 }
@@ -102,6 +103,7 @@ footer {
   font-size: 1.5rem;
   text-align: center;
   font-weight: 700;
+  
 
 
 }
@@ -153,6 +155,7 @@ footer {
   color: #fff;
   font-weight: 500;
   font-size: 2.2rem;
+  font-family: "Bebas Neue", sans-serif
 
 }
 
@@ -199,6 +202,7 @@ footer {
   color: #fff;
   font-weight: 500;
   font-size: 2rem;
+  font-family: "Bebas Neue", sans-serif !important;
 
 }
 
