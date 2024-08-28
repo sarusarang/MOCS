@@ -178,7 +178,7 @@ function Footer() {
 
                 <p>
 
-                  <i class="fa-solid fa-house-chimney"></i> Corporate Office MOCS Foot Care  7QJ8+42H, West Hill, Kozhikode, Kerala 673005
+                  <i class="fa-solid fa-house-chimney"></i> Corporate Office <br /> MOCS Foot Care <br />   7QJ8+42H, West Hill, Kozhikode, Kerala 673005
 
                 </p>
 

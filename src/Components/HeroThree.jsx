@@ -48,7 +48,7 @@ function HeroThree() {
                             <h3>About Us</h3>
 
 
-                            <p>Each and every footwear bought from our website will act as a style statement for you, all by itself. We deal into varied types of footwears for men, women, kids and babies. We simply 'aim to please' and believe in keeping our customers before anything. We, dummy company, located in area, city, state have curated some of the best styles that you can wear with Indian, formal, casuals, ethnic and every-day wear. We understand the wide range of sizes and foot types and thus have footwear for one and all. So, grab your favourite one soon</p>
+                            <p>MOCS Foot Care, founded in Kozhikode by Azhar R.M. in 2014, began with handmade ladies' belly shoes and has since expanded its product range and production capacity. Initially focused on Kerala, the company now distributes 2,000 pairs daily across several Indian states and internationally. MOCS is recognized for quality and trendy designs and aims to enhance its global brand value by launching premium products.</p>
 
                         </div>
 
