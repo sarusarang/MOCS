@@ -41,7 +41,7 @@ function Hero() {
 
                         <div className='col-md-4 hero-box ' data-aos="fade-right" data-aos-duration="600">
 
-                            <img src="/Hero-1.jpeg" className='img-fluid' alt="img" />
+                            <img src="/Hero-1.jpeg" loading='lazy' className='img-fluid' alt="img" />
 
                         </div>
 
@@ -49,7 +49,7 @@ function Hero() {
 
                         <div className='col-md-4 hero-box' data-aos="fade-up" data-aos-duration="600">
 
-                            <img src="/Hero-2.jpeg" className='img-fluid' alt="img" />
+                            <img src="/Hero-2.jpeg" loading='lazy' className='img-fluid' alt="img" />
 
                         </div>
 
@@ -57,20 +57,20 @@ function Hero() {
 
                         <div className='col-md-4 hero-box' data-aos="fade-left" data-aos-duration="600">
 
-                            <img src="/Hero-3.jpeg" className='img-fluid' alt="img" />
+                            <img src="/Hero-3.jpeg" loading='lazy' className='img-fluid' alt="img" />
 
                         </div>
 
 
                         {/* <div className='col-md-6 hero-box' data-aos="fade-right" data-aos-duration="600">
 
-                            <img src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                         </div>
 
                         <div className='col-md-6 hero-box' data-aos="fade-left" data-aos-duration="600">
 
-                            <img src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image3.jdomni.in/banner/02062022/BA/2B/23/8F058E229372A0C17CD2EEE797_1654153363298.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                         </div> */}
 

@@ -37,7 +37,7 @@ function HeroThree() {
 
                         <div className='col-md-6' data-aos="fade-right" data-aos-duration="600">
 
-                            <img src="/About Us.jpg" className='img-fluid' alt="" />
+                            <img src="/About Us.jpg" loading='lazy' className='img-fluid' alt="img" />
 
                         </div>
 

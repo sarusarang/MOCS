@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import Slider from '../Components/Slider'
 import Hero from '../Components/Hero'
 import HeroTwo from '../Components/HeroTwo'
@@ -6,6 +7,16 @@ import HeroThree from '../Components/HeroThree'
 
 
 function Landing() {
+
+
+
+
+    
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+
+    }, [])
 
 
     return (
