@@ -179,11 +179,11 @@ function Footer() {
 
           <div className='d-flex justify-content-center'>
 
-            <p><Link className='nav-link foot-link me-3' to={'/'}> Privacy & Policy</Link></p>
+            <p><Link className='nav-link foot-link me-3' to={'/policy'}> Privacy & Policy</Link></p>
 
-            <p><Link className='nav-link foot-link me-3' to={'/'}>Terms & Conditions</Link></p>
+            <p><Link className='nav-link foot-link me-3' to={'/terms'}>Terms & Conditions</Link></p>
 
-            <p><Link className='nav-link foot-link me-3' to={'/'}>Refund Policy</Link></p>
+            <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
 
           </div>
 

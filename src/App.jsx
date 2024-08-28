@@ -7,6 +7,9 @@ import Footer from './Components/Footer'
 import Cart from './Pages/Cart'
 import SingleProduct from './Pages/SingleProduct'
 import Filter from './Pages/Filter'
+import Terms from './Pages/Terms'
+import Policy from './Pages/Policy'
+import Refund from './Pages/Refund'
 
 
 function App() {
@@ -41,6 +44,12 @@ function App() {
         <Route path='/pro' element={<SingleProduct />} />
 
         <Route path='/fil' element={<Filter />} />
+
+        <Route path='/terms' element={<Terms />} />
+
+        <Route path='/policy' element={<Policy />} />
+
+        <Route path='/refund' element={<Refund />} />
 
       </Routes>
 

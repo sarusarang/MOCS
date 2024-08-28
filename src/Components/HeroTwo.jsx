@@ -47,7 +47,7 @@ function HeroTwo() {
 
                         <div className='col-md-6 hero2-box' data-aos="zoom-in" data-aos-duration="600" onClick={()=>{Navigate('/pro')}} >
 
-                            <img src="https://image3.jdomni.in/banner/31052022/46/ED/1C/6CEF6ABF091A53AA9D421F0941_1653992530385.jpeg?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image3.jdomni.in/banner/31052022/46/ED/1C/6CEF6ABF091A53AA9D421F0941_1653992530385.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                             <div className='box-text'>
 
@@ -61,7 +61,7 @@ function HeroTwo() {
 
                         <div className='col-md-6 hero2-box' data-aos="zoom-in" data-aos-duration="600" onClick={()=>{Navigate('/pro')}} >
 
-                            <img src="https://image3.jdomni.in/banner/31052022/A1/4E/B7/0CC5D6C6D27C91EC955D9BB267_1653994766901.png?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image3.jdomni.in/banner/31052022/A1/4E/B7/0CC5D6C6D27C91EC955D9BB267_1653994766901.png?output-format=webp" className='img-fluid' alt="img" />
 
                             <div className='box-text'>
 
@@ -74,7 +74,7 @@ function HeroTwo() {
 
                         <div className='col-md-6 hero2-box' data-aos="zoom-in" data-aos-duration="600" onClick={()=>{Navigate('/pro')}} >
 
-                            <img src="https://image2.jdomni.in/banner/31052022/AC/1C/82/51CE59CA074B1D3519E729D2C8_1653992829233.jpeg?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image2.jdomni.in/banner/31052022/AC/1C/82/51CE59CA074B1D3519E729D2C8_1653992829233.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                             <div className='box-text'>
 
@@ -87,7 +87,7 @@ function HeroTwo() {
 
                         <div className='col-md-6 hero2-box' data-aos="zoom-in" data-aos-duration="600" onClick={()=>{Navigate('/pro')}} >
 
-                            <img src="https://image3.jdomni.in/banner/13122022/68/E6/65/1704754727B1C1EDA3CA0B2ED8_1670923868449.jpeg?output-format=webp" className='img-fluid' alt="img" />
+                            <img loading='lazy' src="https://image3.jdomni.in/banner/13122022/68/E6/65/1704754727B1C1EDA3CA0B2ED8_1670923868449.jpeg?output-format=webp" className='img-fluid' alt="img" />
 
                             <div className='box-text'>
 
