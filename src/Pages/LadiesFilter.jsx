@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function Filter() {
+
+
+function LadiesFilter() {
 
 
     const [rangeValue, setRangeValue] = useState(0);
@@ -27,16 +29,17 @@ function Filter() {
         setRangeValue(value);
         setMaxPrice(value)
     };
-    
+
 
     const Navigate = useNavigate()
+
+
 
 
     return (
 
 
         <>
-
 
             <section className="p-3 pt-5 mb-5">
 
@@ -410,11 +413,11 @@ function Filter() {
 
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
+                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
 
                                     <div className="card w-100 my-2 border  hover-shadow">
 
-                                        <img src="/010 GREEN 6-10 379.jpg" className="card-img-top" />
+                                        <img src="/1507 CHERRY  5-9 359.jpg" className="card-img-top" />
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
@@ -437,9 +440,9 @@ function Filter() {
                                 </div>
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
+                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
                                     <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/011 GREY 6-10 289.jpg" className="card-img-top" />
+                                        <img src="/3504 BROWN 5-8 359.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
                                                 <h5 className="mb-1 me-1">₹999.00</h5>
@@ -462,9 +465,9 @@ function Filter() {
 
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
+                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
                                     <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/015 BROWN 6-10 539.jpg" className="card-img-top" />
+                                        <img src="/6035 BROWN 5-9 359.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
                                                 <h5 className="mb-1 me-1">₹999.00</h5>
@@ -486,9 +489,9 @@ function Filter() {
 
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
+                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
                                     <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/016 MEHANDI 6-10 419.jpg" className="card-img-top" />
+                                        <img src="/6411 BLACK 5-9 320.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
                                                 <h5 className="mb-1 me-1">₹999.00</h5>
@@ -510,9 +513,9 @@ function Filter() {
 
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
+                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
                                     <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/1102 TAN 8-10 309.jpg" className="card-img-top" />
+                                        <img src="/6525 5-9 369.jpg" className="card-img-top" />
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
@@ -535,7 +538,7 @@ function Filter() {
 
 
 
-                            
+
                             </div>
 
 
@@ -556,11 +559,11 @@ function Filter() {
         </>
 
 
-    )
 
+    )
 
 
 
 }
 
-export default Filter
+export default LadiesFilter

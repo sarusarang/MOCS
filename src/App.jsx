@@ -1,5 +1,6 @@
 import { useState ,useEffect} from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Landing from './Pages/Landing'
 import Auth from './Pages/Auth'
 import Header from './Components/Header'
@@ -10,7 +11,8 @@ import Filter from './Pages/Filter'
 import Terms from './Pages/Terms'
 import Policy from './Pages/Policy'
 import Refund from './Pages/Refund'
-import { useLocation } from 'react-router-dom'
+import LadiesFilter from './Pages/LadiesFilter'
+
 
 
 function App() {
@@ -83,6 +85,8 @@ function App() {
         <Route path='/policy' element={<Policy />} />
 
         <Route path='/refund' element={<Refund />} />
+
+        <Route path='/ladies' element={<LadiesFilter />} />
 
       </Routes>
 

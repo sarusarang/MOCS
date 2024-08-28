@@ -59,7 +59,7 @@ function Header() {
 
             <Link to={'/fil'} onClick={handleNavClick}>Gents</Link>
 
-            <Link to={'/fil'} onClick={handleNavClick}>Ladies</Link>
+            <Link to={'/ladies'} onClick={handleNavClick}>Ladies</Link>
 
             <Link to={'/fil'} onClick={handleNavClick}>Boys & Girls</Link>
 
