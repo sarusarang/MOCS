@@ -7,7 +7,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+  scroll-behavior: smooth;
 
 
 }
@@ -36,7 +36,8 @@ body::-webkit-scrollbar {
 
 html {
 
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+
 }
 
 
@@ -76,6 +77,14 @@ footer {
 .foot-link:hover {
 
   color: #ccc !important;
+
+}
+
+
+.foot-soc i{
+
+  font-size: 1rem;
+  
 
 }
 

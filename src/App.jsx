@@ -1,4 +1,4 @@
-import { useState ,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import Landing from './Pages/Landing'
@@ -12,6 +12,7 @@ import Terms from './Pages/Terms'
 import Policy from './Pages/Policy'
 import Refund from './Pages/Refund'
 import LadiesFilter from './Pages/LadiesFilter'
+import ContactUs from './Pages/ContactUs'
 
 
 
@@ -62,7 +63,7 @@ function App() {
       <div className="position-sticky sticky-top  z-5 w-100 header-shadow">
 
 
-      {!Hide && <Header />}
+        {!Hide && <Header />}
 
 
       </div>
@@ -88,9 +89,9 @@ function App() {
 
         <Route path='/ladies' element={<LadiesFilter />} />
 
+        <Route path='/contact' element={<ContactUs />} />
+
       </Routes>
-
-
 
 
       {!Hide && <Footer />}

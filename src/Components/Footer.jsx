@@ -32,32 +32,32 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Men</Link>
+                  <Link to={'/fil'} className='text-reset foot-link'>Men</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Women</Link>
+                  <Link to={'/fil'} className='text-reset foot-link'>Women</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Kids</Link>
+                  <Link to={'/fil'} className='text-reset foot-link'>Kids</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Brands</Link>
+                  <Link to={'/fil'} className='text-reset foot-link'>Brands</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Offers</Link>
+                  <Link to={'/fil'} className='text-reset foot-link'>Offers</Link>
 
 
                 </p>
@@ -76,26 +76,26 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>About Us</Link>
+                  <Link to={'/'} className='text-reset foot-link'>About Us</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Media Center</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Media Center</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Blog</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Blog</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Careers</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Careers</Link>
 
                 </p>
 
@@ -113,21 +113,21 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Online Shopping Policy</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Online Shopping Policy</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>My Account</Link>
+                  <Link to={'/auth'} className='text-reset foot-link'>Login</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Track My Order</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Track My Order</Link>
 
                 </p>
 
@@ -147,14 +147,14 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Contact Us</Link>
+                  <Link to={'/contact'} className='text-reset foot-link'>Contact Us</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Store Locator</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Store Locator</Link>
 
                 </p>
 
@@ -196,31 +196,31 @@ function Footer() {
         {/* Socail Media Links */}
         <section className="d-flex justify-content-center pb-3 foot-soc">
 
-          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '8rem' }}
+          <a data-mdb-ripple-init className="btn m-1" href="https://www.facebook.com/mocsfootcarecalicut/" role="button" target='_blank' style={{ borderRadius: '8rem' }}
           ><i className="fab fa-facebook-f text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn m-1" href="https://x.com/footwear12887" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fa-brands fa-x-twitter text-white"></i></a>
 
-          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn  m-1" href="https://www.instagram.com/mocsfootwear/?hl=en" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fab fa-instagram text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn  m-1" href="https://www.linkedin.com/company/mocs-footcare/about/?viewAsMember=true" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fab fa-linkedin-in text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn m-1" href="https://www.youtube.com/@mocsfootwear" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fa-brands fa-youtube text-white"></i></a>
 
 
 
 
-          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          <a data-mdb-ripple-init className="btn  m-1" href="https://in.pinterest.com/mocsfootwearin/" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i className="fa-brands fa-pinterest text-white"></i></a>
 
 
