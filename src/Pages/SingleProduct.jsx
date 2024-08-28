@@ -86,7 +86,7 @@ function SingleProduct() {
                 <div className="ps-lg-3">
 
                   {/* Tittle */}
-                  <h3 className="title text-dark mb-0">
+                  <h3 className="title text-dark mb-0 fw-bold">
                     Footware
                   </h3>
                   <p style={{ color: "#777" }}>Perfect Sandals for Men</p>
@@ -117,7 +117,7 @@ function SingleProduct() {
                   {/* Price */}
                   <div className="mb-3">
 
-                    <span className="h5">MRP ₹1,000.00</span> <br />
+                    <span className="h5 fw-bold">MRP ₹379.00</span> <br />
                     <span className="text-muted" style={{ fontSize: '13px', fontWeight: '500' }}> (Inclusive of all taxes)</span>
 
                   </div>

@@ -421,7 +421,7 @@ function LadiesFilter() {
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹359.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -445,7 +445,7 @@ function LadiesFilter() {
                                         <img src="/3504 BROWN 5-8 359.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹359.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -467,10 +467,14 @@ function LadiesFilter() {
 
                                 <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={() => { Navigate('/pro') }}>
                                     <div className="card w-100 my-2 border  hover-shadow">
+
+
                                         <img src="/6035 BROWN 5-9 359.jpg" className="card-img-top" />
+
                                         <div className="card-body d-flex flex-column">
+
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹359.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -494,7 +498,7 @@ function LadiesFilter() {
                                         <img src="/6411 BLACK 5-9 320.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹320.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -519,7 +523,7 @@ function LadiesFilter() {
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹369.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>

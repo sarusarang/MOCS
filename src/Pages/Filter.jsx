@@ -418,7 +418,7 @@ function Filter() {
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹379.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -442,7 +442,7 @@ function Filter() {
                                         <img src="/011 GREY 6-10 289.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹289.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -467,7 +467,7 @@ function Filter() {
                                         <img src="/015 BROWN 6-10 539.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹539.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -491,7 +491,7 @@ function Filter() {
                                         <img src="/016 MEHANDI 6-10 419.jpg" className="card-img-top" />
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹419.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -516,7 +516,7 @@ function Filter() {
 
                                         <div className="card-body d-flex flex-column">
                                             <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹999.00</h5>
+                                                <h5 className="mb-1 me-1">₹309.00</h5>
                                                 <span className="text-danger"><s>₹1499.00</s></span>
                                             </div>
                                             <p className="card-text">Footware with multiple colors, for men and lady</p>
@@ -530,6 +530,7 @@ function Filter() {
 
 
                                         </div>
+                                        
                                     </div>
                                 </div>
 
