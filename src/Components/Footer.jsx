@@ -169,7 +169,7 @@ function Footer() {
         </section>
 
 
-        <div class="text-center p-4 pb-0" style={{ color: '#ccc' }}>
+        <div className="text-center p-4 pb-0" style={{ color: '#ccc' }}>
 
 
           <p> Copyright © 2024 Mocs All Rights Reserved. </p>
@@ -194,34 +194,34 @@ function Footer() {
 
 
         {/* Socail Media Links */}
-        <section class="d-flex justify-content-center pb-3">
+        <section className="d-flex justify-content-center pb-3 foot-soc">
 
-          <a data-mdb-ripple-init class="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fab fa-facebook-f text-white"></i
+          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '8rem' }}
+          ><i className="fab fa-facebook-f text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fa-brands fa-x-twitter text-white"></i></a>
+          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          ><i className="fa-brands fa-x-twitter text-white"></i></a>
 
-          <a data-mdb-ripple-init class="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fab fa-instagram text-white"></i
+          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          ><i className="fab fa-instagram text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fab fa-linkedin-in text-white"></i
+          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          ><i className="fab fa-linkedin-in text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fa-brands fa-youtube text-white"></i></a>
+          <a data-mdb-ripple-init className="btn m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          ><i className="fa-brands fa-youtube text-white"></i></a>
 
 
 
 
-          <a data-mdb-ripple-init class="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
-          ><i class="fa-brands fa-pinterest text-white"></i></a>
+          <a data-mdb-ripple-init className="btn  m-1" href="" role="button" target='_blank' style={{ borderRadius: '5rem' }}
+          ><i className="fa-brands fa-pinterest text-white"></i></a>
 
 
         </section>

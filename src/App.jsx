@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Landing from './Pages/Landing'
 import Auth from './Pages/Auth'
@@ -10,13 +10,46 @@ import Filter from './Pages/Filter'
 import Terms from './Pages/Terms'
 import Policy from './Pages/Policy'
 import Refund from './Pages/Refund'
+import { useLocation } from 'react-router-dom'
 
 
 function App() {
 
 
 
-  
+  const location = useLocation()
+
+
+  const [Hide, sethide] = useState(false)
+
+
+
+
+  useEffect(() => {
+
+
+    const hidecheck = () => {
+
+      if (location.pathname == '/auth') {
+
+
+        sethide(true)
+
+
+      }
+      else {
+
+        sethide(false)
+
+      }
+
+    }
+
+    hidecheck()
+
+  }, [location])
+
+
 
 
   return (
@@ -27,7 +60,7 @@ function App() {
       <div className="position-sticky sticky-top  z-5 w-100 header-shadow">
 
 
-        <Header />
+      {!Hide && <Header />}
 
 
       </div>
@@ -56,7 +89,7 @@ function App() {
 
 
 
-      <Footer />
+      {!Hide && <Footer />}
 
 
     </>

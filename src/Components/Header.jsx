@@ -98,7 +98,7 @@ function Header() {
 
               <div className='dropdown-content'>
 
-                <Link to={'/'} className='drop-link d-block' onClick={handleNavClick}>Login</Link>
+                <Link to={'/auth'} className='drop-link d-block' onClick={handleNavClick}>Login</Link>
                 <Link to={'/'} className='drop-link d-block' onClick={handleNavClick}>Logout</Link>
 
               </div>

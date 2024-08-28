@@ -693,6 +693,24 @@ footer {
   }
 
 
+  /* Footer */
+  .foot-soc i{
+
+
+    font-size: small;
+
+
+
+  }
+
+  .foot-soc a{
+
+
+    padding: 0.5rem 1rem 0.5rem 1rem !important;
+
+
+  }
+
 
 
 
