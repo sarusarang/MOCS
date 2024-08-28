@@ -68,7 +68,7 @@ function ProductSlide() {
 
                                             <div className="box-up"  >
 
-                                                <img className="img-fluid img" loading='lazy' src="https://admin.mochishoes.com/product/118-206711/660/118-206711O02G.jpg" alt="img" style={{ height: '100%' }} />
+                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
 
                                                 <div className="img-info">
 
@@ -144,7 +144,7 @@ function ProductSlide() {
 
                                             <div className="box-up"  >
 
-                                                <img className="img-fluid img" loading='lazy' src="https://admin.mochishoes.com/product/118-206711/660/118-206711O02G.jpg" alt="img" style={{ height: '100%' }} />
+                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
 
                                                 <div className="img-info">
 
@@ -220,7 +220,7 @@ function ProductSlide() {
 
                                             <div className="box-up"  >
 
-                                                <img className="img-fluid img" loading='lazy' src="https://admin.mochishoes.com/product/118-206711/660/118-206711O02G.jpg" alt="img" style={{ height: '100%' }} />
+                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
 
                                                 <div className="img-info">
 
@@ -298,7 +298,7 @@ function ProductSlide() {
 
                                             <div className="box-up"  >
 
-                                                <img className="img-fluid img" loading='lazy' src="https://admin.mochishoes.com/product/118-206711/660/118-206711O02G.jpg" alt="img" style={{ height: '100%' }} />
+                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
 
                                                 <div className="img-info">
 
@@ -372,7 +372,7 @@ function ProductSlide() {
 
                                             <div className="box-up"  >
 
-                                                <img className="img-fluid img" loading='lazy' src="https://admin.mochishoes.com/product/118-206711/660/118-206711O02G.jpg" alt="img" style={{ height: '100%' }} />
+                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
 
                                                 <div className="img-info">
 

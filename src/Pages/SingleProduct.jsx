@@ -63,7 +63,7 @@ function SingleProduct() {
                 <div className="border rounded-4 mb-3 d-flex justify-content-center">
 
                   <a data-fslightbox="mygalley" className="rounded-4" target="_blank" data-type="image">
-                    <img style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src="https://adamis.s3.ap-south-1.amazonaws.com/images/product/big/product_B1906_4710.jpg" />
+                    <img style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src="/010 GREEN 6-10 379.jpg" />
                   </a>
 
                 </div>
@@ -72,7 +72,7 @@ function SingleProduct() {
                 <div className="d-flex justify-content-center mb-3">
 
                   <a data-fslightbox="mygalley" className="border mx-1 rounded-2 item-thumb" target="_blank" data-type="image">
-                    <img width="60" height="60" className="rounded-2" src="https://adamis.s3.ap-south-1.amazonaws.com/images/product/big/product_B1906_4710.jpg" />
+                    <img width="60" height="60" className="rounded-2" src="/010 GREEN 6-10 379.jpg" />
                   </a>
 
                 </div>
