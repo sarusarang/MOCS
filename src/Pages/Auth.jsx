@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
+import { Login, Register } from '../Services/AllApi'
+
 
 function Auth() {
 
@@ -10,6 +12,156 @@ function Auth() {
 
   // TO check Login and Register Status
   const [LoginStatus, setLoginStatus] = useState(true)
+
+
+  // Login data
+  const [LoginData, SetLoginData] = useState({
+
+    username: "", password: "", email: "", password2: ""
+
+  })
+
+
+
+  //Login
+  const handleLogin = async () => {
+
+
+    try {
+
+
+      const { username, password } = LoginData
+
+
+      if (!username || !password) {
+
+
+        alert("Empty Field")
+
+
+      }
+      else {
+
+
+        const reqheader = {
+
+          "Content-Type": "multipart/form-data"
+
+        }
+
+
+        const formdata = new FormData()
+
+        formdata.append("username", username)
+        formdata.append("password", password)
+
+
+        const res = await Login(formdata, reqheader)
+
+
+        if (res.status >= 200 && res.status <= 300) {
+
+
+          console.log(res);
+
+
+        }
+        else {
+
+          console.log(res);
+
+
+        }
+
+
+      }
+
+    }
+    catch (Err) {
+
+
+      console.log(Err);
+
+
+    }
+
+
+
+  }
+
+
+
+  // Register
+  const handleRegister = async () => {
+
+
+    try {
+
+
+      const { username, password, password2, email } = LoginData
+
+
+      if (!username || !password || !password2 || !email) {
+
+
+        alert("Empty Field")
+
+
+      }
+      else {
+
+
+
+        const reqheader = {
+
+          "Content-Type": "multipart/form-data"
+
+        }
+
+
+        const formdata = new FormData()
+
+        formdata.append("username", username)
+        formdata.append("password", password)
+        formdata.append("password2", password2)
+        formdata.append("email", email)
+
+
+        const res = await Register(formdata,reqheader)
+
+
+        if (res.status >= 200 && res.status <= 300) {
+
+
+          console.log(res);
+
+
+        }
+        else {
+
+          console.log(res);
+
+
+        }
+
+      }
+
+      
+    }
+    catch (Err) {
+
+
+      console.log(Err);
+
+
+    }
+
+
+
+  }
+
+
+
 
 
 
@@ -56,11 +208,11 @@ function Auth() {
 
                   <h1>Login</h1>
 
-                  <input type="text" className='form-control' placeholder='Enter your UserName' /> <br />
+                  <input type="text" onChange={(e) => { SetLoginData({ ...LoginData, username: e.target.value }) }} className='form-control' placeholder='Enter your UserName' /> <br />
 
-                  <input type="password" className='form-control' placeholder='Enter Your Password' />
+                  <input type="password" onChange={(e) => { SetLoginData({ ...LoginData, password: e.target.value }) }} className='form-control' placeholder='Enter Your Password' />
 
-                  <button type='submit' className='btn-login w-100 mt-3' >Login</button>
+                  <button type='submit' className='btn-login w-100 mt-3' onClick={handleLogin}>Login</button>
 
                   <button className="google-login-btn mt-3 w-100">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon" />
@@ -79,15 +231,15 @@ function Auth() {
 
                   <h1>Sign Up</h1>
 
-                  <input type="text" className='form-control' placeholder='Enter your username' /> <br />
+                  <input type="text" onChange={(e) => { SetLoginData({ ...LoginData, username: e.target.value }) }} className='form-control' placeholder='Enter your username' /> <br />
 
-                  <input type="email" className='form-control' placeholder='Enter your Email' /> <br />
+                  <input type="email" onChange={(e) => { SetLoginData({ ...LoginData, email: e.target.value }) }} className='form-control' placeholder='Enter your Email' /> <br />
 
-                  <input type="password" className='form-control' placeholder='Enter Your Password' />
+                  <input type="password" onChange={(e) => { SetLoginData({ ...LoginData, password: e.target.value }) }} className='form-control' placeholder='Enter Your Password' />
 
-                  <input type="password" className='form-control mt-3' placeholder=' Re-Enter Password' />
+                  <input type="password" onChange={(e) => { SetLoginData({ ...LoginData, password2: e.target.value }) }} className='form-control mt-3' placeholder=' Re-Enter Password' />
 
-                  <button type='submit' className='btn-login w-100 mt-3' >Register</button>
+                  <button type='submit' className='btn-login w-100 mt-3' onClick={handleRegister} >Register</button>
 
                   <p className='text-center mt-3'>Already Registerd ? <a className='dont' onClick={() => { setLoginStatus(true) }}>Login</a></p>
 
