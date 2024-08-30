@@ -5,6 +5,7 @@ import './Header.css'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
+import { toast } from 'sonner'
 
 
 
@@ -20,6 +21,20 @@ function Header() {
     setExpanded(false);
   };
 
+
+
+  const handleLogOut=()=>{
+
+
+    handleNavClick()
+
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("user")
+
+    toast.success("Logged Out...!")
+
+
+  }
 
 
 
@@ -99,7 +114,7 @@ function Header() {
               <div className='dropdown-content'>
 
                 <Link to={'/auth'} className='drop-link d-block' onClick={handleNavClick}>Login</Link>
-                <Link to={'/'} className='drop-link d-block' onClick={handleNavClick}>Logout</Link>
+                <Link to={'/'} className='drop-link d-block' onClick={handleLogOut}>Logout</Link>
 
               </div>
 

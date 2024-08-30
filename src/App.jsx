@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { Toaster } from 'sonner'
 import Landing from './Pages/Landing'
 import Auth from './Pages/Auth'
 import Header from './Components/Header'
@@ -95,6 +96,9 @@ function App() {
 
 
       {!Hide && <Footer />}
+
+
+      <Toaster richColors position='top-center'/>
 
 
     </>

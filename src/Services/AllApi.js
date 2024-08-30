@@ -1,7 +1,7 @@
 import { CommonApi } from "./CommonApi";
 
 
-const base_url = ""
+const base_url = "https://server.mocs.in"
 
 
 
@@ -9,7 +9,7 @@ const base_url = ""
 // Login
 export const Login = async (data,header) => {
 
-    return CommonApi("POST", `${base_url}`,data,header)
+    return CommonApi("POST", `${base_url}/users/login/`,data,header)
 
 }
 
@@ -17,7 +17,7 @@ export const Login = async (data,header) => {
 // Register
 export const Register = async (data,header) => {
 
-    return CommonApi("POST", `${base_url}`,data,header)
+    return CommonApi("POST", `${base_url}/users/register/`,data,header)
 
 }
 
@@ -25,6 +25,6 @@ export const Register = async (data,header) => {
 // Get All products
 export const GetAllProducts = async () => {
 
-    return CommonApi("GET", `${base_url}/products/`)
+    return CommonApi("GET", `${base_url}/`)
 
 }

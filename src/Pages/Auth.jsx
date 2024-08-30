@@ -2,16 +2,22 @@ import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
 import { Login, Register } from '../Services/AllApi'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 
 
 function Auth() {
 
 
 
+  // For Navigation
+  const Navigate = useNavigate()
 
 
   // TO check Login and Register Status
   const [LoginStatus, setLoginStatus] = useState(true)
+
+
 
 
   // Login data
@@ -62,13 +68,27 @@ function Auth() {
         if (res.status >= 200 && res.status <= 300) {
 
 
-          console.log(res);
+          toast.success("Login Success...!")
+
+          console.log(res.data.token);
+          
+
+          sessionStorage.setItem("token",res.data.token)
+          sessionStorage.setItem("user",username)
+
+
+          setTimeout(() => {
+
+            Navigate('/')
+
+          },1000);
 
 
         }
         else {
 
           console.log(res);
+          toast.warning("Invaild Username or Password")
 
 
         }
@@ -91,6 +111,7 @@ function Auth() {
 
 
 
+
   // Register
   const handleRegister = async () => {
 
@@ -104,7 +125,7 @@ function Auth() {
       if (!username || !password || !password2 || !email) {
 
 
-        alert("Empty Field")
+        toast.warning("Empty Feild...!")
 
 
       }
@@ -123,30 +144,32 @@ function Auth() {
 
         formdata.append("username", username)
         formdata.append("password", password)
-        formdata.append("password2", password2)
+        formdata.append("password_confirm", password2)
         formdata.append("email", email)
 
 
-        const res = await Register(formdata,reqheader)
+        const res = await Register(formdata, reqheader)
 
 
         if (res.status >= 200 && res.status <= 300) {
 
 
-          console.log(res);
+          toast.success("Registration Success..!")
+          setLoginStatus(true)
 
 
         }
         else {
 
           console.log(res);
+          toast.error(res.response.data.username || res.response.data.password || res.response.data.email || res.response.data.non_field_errors)
 
 
         }
 
       }
 
-      
+
     }
     catch (Err) {
 
