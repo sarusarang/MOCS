@@ -515,7 +515,7 @@ function Filter() {
 
                                                     <div className="card w-100 my-2 border  hover-shadow">
 
-                                                        <img src={item.image} className="card-img-top" style={{ cursor: 'pointer' }} onClick={() => { Navigate(`/pro/${item.id}`) }} />
+                                                        <img loading='lazy' src={item.image} className="card-img-top" style={{ cursor: 'pointer' }} onClick={() => { Navigate(`/pro/${item.id}`) }} />
 
                                                         <div className="card-body d-flex flex-column">
 
