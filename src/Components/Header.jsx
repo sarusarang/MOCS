@@ -23,15 +23,30 @@ function Header() {
 
 
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
 
 
     handleNavClick()
 
-    sessionStorage.removeItem("token")
-    sessionStorage.removeItem("user")
+    const user = sessionStorage.getItem("token")
 
-    toast.success("Logged Out...!")
+    if (user) {
+
+      sessionStorage.removeItem("token")
+      sessionStorage.removeItem("user")
+
+      toast.success("Logged Out...!")
+
+
+
+    }
+    else {
+
+
+      toast.warning("No user Found Please Login...")
+
+    }
+
 
 
   }
