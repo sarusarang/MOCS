@@ -12,7 +12,6 @@ import Filter from './Pages/Filter'
 import Terms from './Pages/Terms'
 import Policy from './Pages/Policy'
 import Refund from './Pages/Refund'
-import LadiesFilter from './Pages/LadiesFilter'
 import ContactUs from './Pages/ContactUs'
 
 
@@ -78,7 +77,7 @@ function App() {
 
         <Route path='/cart' element={<Cart />} />
 
-        <Route path='/pro' element={<SingleProduct />} />
+        <Route path='/pro/:id' element={<SingleProduct />} />
 
         <Route path='/fil' element={<Filter />} />
 
@@ -87,8 +86,6 @@ function App() {
         <Route path='/policy' element={<Policy />} />
 
         <Route path='/refund' element={<Refund />} />
-
-        <Route path='/ladies' element={<LadiesFilter />} />
 
         <Route path='/contact' element={<ContactUs />} />
 

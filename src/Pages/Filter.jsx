@@ -1,35 +1,103 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
+import { GetAllProducts } from '../Services/AllApi';
+import { Skeleton } from '@mui/material';
 
 
 
 function Filter() {
 
 
+
+    // Redux States
+    const { Filter, Search } = useSelector((state) => state.Filter)
+
+
+    // Filterd Data
+    const [FilterData, SetFilterData] = useState([])
+
+
+    // Loading State 
+    const [Loading, SetLoading] = useState(true)
+
+
+    const Navigate = useNavigate()
+
+
+    // Price Range
     const [rangeValue, setRangeValue] = useState(0);
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(10000);
 
 
 
+
+
     useEffect(() => {
 
+
+
+        // To get all the products
+        const GetProducts = async () => {
+
+            try {
+
+                const res = await GetAllProducts()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+
+                    SetFilterData(res.data)
+                    SetLoading(false)
+
+
+                }
+                else {
+
+
+                    console.log(res);
+                    SetLoading(true)
+
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err);
+                SetLoading(true)
+
+            }
+
+
+        }
+
+
+
         window.scrollTo(0, 0);
+
+        GetProducts()
 
     }, [])
 
 
+
+    // Price Button 
     const handleRangeChange = (e) => {
 
         const value = e.target.value;
         setRangeValue(value);
         setMaxPrice(value)
     };
-    
 
-    const Navigate = useNavigate()
+
+
+
+    console.log(FilterData);
+
 
 
     return (
@@ -39,6 +107,8 @@ function Filter() {
 
 
             <section className="p-3 pt-5 mb-5">
+
+
 
                 <div className="container">
 
@@ -400,7 +470,7 @@ function Filter() {
 
                             <header className="d-sm-flex align-items-center border-bottom mb-4 pb-3">
 
-                                <strong className="d-block py-2">5 Items found </strong>
+                                <strong className="d-block py-2">{FilterData.length} Products Found</strong>
 
                             </header>
 
@@ -409,134 +479,97 @@ function Filter() {
                             <div className="row">
 
 
+                                {
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
 
-                                    <div className="card w-100 my-2 border  hover-shadow">
+                                    Loading ?
 
-                                        <img src="/010 GREEN 6-10 379.jpg" className="card-img-top" />
+                                        Array.from({ length: 6 }).map((item) => (
 
-                                        <div className="card-body d-flex flex-column">
-                                            <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹379.00</h5>
-                                                <span className="text-danger"><s>₹1499.00</s></span>
-                                            </div>
-                                            <p className="card-text">Footware with multiple colors, for men and lady</p>
 
-                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                            <div className=' mt-3 col-md-4 '>
 
-                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
+                                                <Skeleton sx={{ height: 190 }} width={'100%'} animation="wave" variant="rectangular" />
 
+                                                <Skeleton animation="wave" height={20} width={'100%'} style={{ marginBottom: 6, marginTop: '1rem' }} />
+
+                                                <Skeleton animation="wave" height={20} width="80%" />
 
                                             </div>
 
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
-                                    <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/011 GREY 6-10 289.jpg" className="card-img-top" />
-                                        <div className="card-body d-flex flex-column">
-                                            <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹289.00</h5>
-                                                <span className="text-danger"><s>₹1499.00</s></span>
-                                            </div>
-                                            <p className="card-text">Footware with multiple colors, for men and lady</p>
-
-                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-
-                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
-
-
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                        ))
 
 
 
-
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
-                                    <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/015 BROWN 6-10 539.jpg" className="card-img-top" />
-                                        <div className="card-body d-flex flex-column">
-                                            <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹539.00</h5>
-                                                <span className="text-danger"><s>₹1499.00</s></span>
-                                            </div>
-                                            <p className="card-text">Footware with multiple colors, for men and lady</p>
-
-                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-
-                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
-
-
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                        :
 
 
 
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
-                                    <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/016 MEHANDI 6-10 419.jpg" className="card-img-top" />
-                                        <div className="card-body d-flex flex-column">
-                                            <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹419.00</h5>
-                                                <span className="text-danger"><s>₹1499.00</s></span>
-                                            </div>
-                                            <p className="card-text">Footware with multiple colors, for men and lady</p>
-
-                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-
-                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
+                                        FilterData.length > 0 ?
 
 
-                                            </div>
+                                            FilterData.map((item) => (
 
 
-                                        </div>
-                                    </div>
-                                </div>
+                                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" >
+
+                                                    <div className="card w-100 my-2 border  hover-shadow">
+
+                                                        <img src={item.image} className="card-img-top" style={{ cursor: 'pointer' }} onClick={() => { Navigate(`/pro/${item.id}`) }} />
+
+                                                        <div className="card-body d-flex flex-column">
+
+                                                            <h4 className="mb-1 me-1 fw-bold">{item.name}</h4>
+
+                                                            <div className="d-flex flex-row ">
+
+                                                                <h5 className="mb-1 me-1">₹ {item.offer_is_available ? item.offer_price : item.price}</h5>
+
+                                                                <span className="text-danger"><s>{item.offer_is_available ? <s> ₹{item.price} </s> : ""}</s></span>
+
+                                                                <p className='text-success ms-2'>{item.offer_is_available ? <s style={{textDecoration:'none'}}>{item.offer_percentage}%off</s> : ""}</p>
 
 
-
-                                <div className="col-lg-4 col-md-6 col-sm-6 d-flex" onClick={()=>{Navigate('/pro')}}>
-                                    <div className="card w-100 my-2 border  hover-shadow">
-                                        <img src="/1102 TAN 8-10 309.jpg" className="card-img-top" />
-
-                                        <div className="card-body d-flex flex-column">
-                                            <div className="d-flex flex-row">
-                                                <h5 className="mb-1 me-1">₹309.00</h5>
-                                                <span className="text-danger"><s>₹1499.00</s></span>
-                                            </div>
-                                            <p className="card-text">Footware with multiple colors, for men and lady</p>
-
-                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-
-                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
-
-
-                                            </div>
-
-
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                                                            </div>
 
 
 
-                            
+                                                            <p className="card-text">{item.description}</p>
+
+                                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+
+                                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
+
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                            ))
+
+
+
+                                            :
+
+
+                                            <h1>No Products Found</h1>
+
+                                }
+
+
+
+
+
+
                             </div>
 
 
@@ -548,6 +581,9 @@ function Filter() {
                     </div>
 
                 </div>
+
+
+
 
 
             </section>

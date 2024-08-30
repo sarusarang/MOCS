@@ -6,6 +6,10 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import { toast } from 'sonner'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { SetFilterData, SetSearchData } from '../STORE/FilterSlice'
+
 
 
 
@@ -21,6 +25,11 @@ function Header() {
     setExpanded(false);
   };
 
+
+
+  const Dipatch = useDispatch()
+
+  const Navigate = useNavigate()
 
 
   const handleLogOut = () => {
@@ -50,6 +59,20 @@ function Header() {
 
 
   }
+
+
+  // Filter data handle
+  const handleFilterData = (data) => {
+
+
+    handleNavClick()
+
+    Dipatch(SetFilterData(data))
+
+  }
+
+
+
 
 
 
@@ -85,16 +108,15 @@ function Header() {
 
             <Link to={'/'} onClick={handleNavClick}>Home</Link>
 
-            <Link to={'/fil'} onClick={handleNavClick}>New Arrivals</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("New Arrivals") }}>New Arrivals</Link>
 
-            <Link to={'/fil'} onClick={handleNavClick}>Gents</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("Gents") }}>gents</Link>
 
-            <Link to={'/ladies'} onClick={handleNavClick}>Ladies</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("Ladies") }}>ladies</Link>
 
-            <Link to={'/fil'} onClick={handleNavClick}>Boys & Girls</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("Boys & Girls") }}>Boys & Girls</Link>
 
-            <Link to={'/fil'} onClick={handleNavClick}>Kids</Link>
-
+            <Link to={'/fil'} onClick={() => { handleFilterData("Kids") }}>kids</Link>
 
           </Nav>
 
@@ -110,9 +132,9 @@ function Header() {
 
 
 
-            <Link to={'/'} onClick={handleNavClick} className='search-none'>
+            <Link to={'/fil'} onClick={handleNavClick} className='search-none'>
 
-              <input type="text" placeholder='Search' className='form-control w-100' />
+              <input type="text" placeholder='Search' onChange={(e)=>{Dipatch(SetSearchData(e.target.value))}} className='form-control w-100' />
 
             </Link>
 

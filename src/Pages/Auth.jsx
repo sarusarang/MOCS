@@ -17,8 +17,7 @@ function Auth() {
   // TO check Login and Register Status
   const [LoginStatus, setLoginStatus] = useState(true)
 
-
-
+  
 
   // Login data
   const [LoginData, SetLoginData] = useState({

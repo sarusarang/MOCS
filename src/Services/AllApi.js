@@ -4,8 +4,6 @@ import { CommonApi } from "./CommonApi";
 const base_url = "https://server.mocs.in"
 
 
-
-
 // Login
 export const Login = async (data,header) => {
 
@@ -25,6 +23,6 @@ export const Register = async (data,header) => {
 // Get All products
 export const GetAllProducts = async () => {
 
-    return CommonApi("GET", `${base_url}/`)
+    return CommonApi("GET", `${base_url}/products/`)
 
 }

@@ -22,13 +22,14 @@ const FilterSlice = createSlice({
 
         SetFilterData: (state, action) => {
 
-            state.Filter = action.payload
+            state.Filter = action.payload 
 
         },
 
         SetSearchData: (State, action) => {
 
             State.Search = action.payload
+
 
         }
 
