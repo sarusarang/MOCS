@@ -207,7 +207,10 @@ function Auth() {
 
           <div>
 
-            <button className='btn btn-danger shadow-0 fw-bold'>Admin Login</button>
+
+            <a href="https://server.mocs.in/admin/" target='_blank' className='btn btn-danger shadow-0 fw-bold'>Admin Login</a>
+
+           
 
           </div>
 
