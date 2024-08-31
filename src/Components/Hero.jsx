@@ -69,7 +69,7 @@ function Hero() {
 
                         <div className='col-md-4 hero-box' data-aos="fade-left" data-aos-duration="600">
 
-                            <img src="/Hero-3.jpeg" loading='lazy' className='img-fluid' alt="img" />
+                            <img src="/Hero-3.jpg" loading='lazy' className='img-fluid' alt="img" />
 
 
                             <div className='hero-text-box'>

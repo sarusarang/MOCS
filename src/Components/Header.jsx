@@ -18,12 +18,14 @@ function Header() {
 
 
   // Collapse the navbar
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
 
 
   const handleNavClick = () => {
-    setExpanded(false);
-  };
+
+    setExpanded(false)
+
+  }
 
 
 
@@ -42,10 +44,10 @@ function Header() {
     if (user) {
 
       sessionStorage.removeItem("token")
+
       sessionStorage.removeItem("user")
 
       toast.success("Logged Out...!")
-
 
 
     }
@@ -55,7 +57,6 @@ function Header() {
       toast.warning("No user Found Please Login...")
 
     }
-
 
 
   }
@@ -72,8 +73,7 @@ function Header() {
   }
 
 
-
-
+  
 
 
   return (
@@ -110,13 +110,13 @@ function Header() {
 
             <Link to={'/fil'} onClick={() => { handleFilterData("New Arrivals") }}>New Arrivals</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("Gents") }}>gents</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("gents") }}>Gents</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("Ladies") }}>ladies</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("ladies") }}>Ladies</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("Boys & Girls") }}>Boys & Girls</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("boys & girls") }}>Boys & Girls</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("Kids") }}>kids</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("kids") }}>kids</Link>
 
           </Nav>
 
@@ -152,6 +152,7 @@ function Header() {
 
                 <Link to={'/auth'} className='drop-link d-block' onClick={handleNavClick}>Login</Link>
                 <Link to={'/'} className='drop-link d-block' onClick={handleLogOut}>Logout</Link>
+                <Link to={'/'} className='drop-link d-block'>Orders</Link>
 
               </div>
 

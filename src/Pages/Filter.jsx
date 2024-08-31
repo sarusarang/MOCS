@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { GetAllProducts } from '../Services/AllApi';
 import { Skeleton } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { SetFilterData } from '../STORE/FilterSlice'
 
 
 
@@ -16,7 +18,15 @@ function Filter() {
 
 
     // Filterd Data
-    const [FilterData, SetFilterData] = useState([])
+    const [FilterData, SetFilData] = useState([])
+
+
+    // Data
+    const [Data, SetData] = useState({
+
+        type: "", Size: ""
+
+    })
 
 
     // Loading State 
@@ -26,10 +36,14 @@ function Filter() {
     const Navigate = useNavigate()
 
 
+    const Dispatch = useDispatch()
+
+
     // Price Range
     const [rangeValue, setRangeValue] = useState(0);
     const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(10000);
+    const [maxPrice, setMaxPrice] = useState(5000)
+
 
 
 
@@ -49,8 +63,27 @@ function Filter() {
                 if (res.status >= 200 && res.status <= 300) {
 
 
+                    console.log(res.data);
 
-                    SetFilterData(res.data)
+
+                    const Result = res.data.filter((item) => {
+
+
+                        const price = parseFloat(item.price)
+
+
+                        return (
+
+                            (!Filter || item.category === Filter) &&
+                            (!Data.type || item.mid_category === Data.type) &&
+                            (price >= minPrice && price <= maxPrice)
+
+                        )
+
+                    })
+
+                    SetFilData(Result)
+
                     SetLoading(false)
 
 
@@ -75,13 +108,11 @@ function Filter() {
 
         }
 
-
-
         window.scrollTo(0, 0);
 
         GetProducts()
 
-    }, [])
+    }, [Filter, Search, Data, minPrice, maxPrice])
 
 
 
@@ -96,7 +127,9 @@ function Filter() {
 
 
 
-    console.log(FilterData);
+
+
+
 
 
 
@@ -162,32 +195,50 @@ function Filter() {
 
                                                 <div>
 
-
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked1" />
-                                                        <label className="form-check-label" for="flexCheckChecked1">Gent's</label>
-                                                        <span className="badge badge-secondary float-end">120</span>
-                                                    </div>
 
+                                                        <input checked={Filter == "gents"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="gents" id="a" />
 
-                                                    <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
-                                                        <label className="form-check-label" for="flexCheckChecked2">Ladie's</label>
+                                                        <label className="form-check-label" for="flexCheckChecked2">Gents</label>
+
                                                         <span className="badge badge-secondary float-end">15</span>
+
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked3" />
+
+                                                        <input checked={Filter == "ladies"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="ladies" id="a" />
+
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">Ladie's</label>
+
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+
+                                                    </div>
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Filter == "boys & girls"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="boys & girls" id="flexCheckChecked3" />
+
                                                         <label className="form-check-label" for="flexCheckChecked3">Boys & Girls</label>
+
                                                         <span className="badge badge-secondary float-end">35</span>
+
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked3" />
+
+                                                        <input checked={Filter == "kids"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="kids" id="flexCheckChecked3" />
+
                                                         <label className="form-check-label" for="flexCheckChecked3">Kids</label>
+
                                                         <span className="badge badge-secondary float-end">35</span>
+
                                                     </div>
 
 
@@ -229,16 +280,27 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked1" />
+
+                                                        <input className="form-check-input" checked={Data.type == "sandals and clogs"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} type="checkbox" value="sandals and clogs" id="flexCheckChecked1" />
+
+
                                                         <label className="form-check-label" for="flexCheckChecked1">SANDALS & CLOGS</label>
+
+
                                                         <span className="badge badge-secondary float-end">120</span>
+
+
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+
+                                                        <input checked={Data.type == "shoes"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="shoes" id="flexCheckChecked2" />
+
                                                         <label className="form-check-label" for="flexCheckChecked2">SHOES</label>
+
                                                         <span className="badge badge-secondary float-end">15</span>
+
                                                     </div>
 
 
@@ -274,7 +336,7 @@ function Filter() {
                                             <div className="accordion-body">
 
                                                 <div className="range">
-                                                    <input type="range" className="form-range" id="customRange1" value={rangeValue} onChange={handleRangeChange} min="0" max="10000" />
+                                                    <input type="range" className="form-range" id="customRange1" value={rangeValue} onChange={handleRangeChange} min="0" max="5000" />
                                                 </div>
 
                                                 <div className="row mb-3">
@@ -285,6 +347,7 @@ function Filter() {
                                                         </p>
 
                                                         <div className="form-outline">
+
                                                             <input type="number" placeholder='₹0' id="typeNumber" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="form-control" />
 
                                                         </div>
@@ -300,7 +363,7 @@ function Filter() {
 
                                                         <div className="form-outline">
 
-                                                            <input type="number" id="typeNumber" placeholder='₹1000' className="form-control" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
+                                                            <input type="number" id="typeNumber" placeholder='₹5000' className="form-control" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
 
                                                         </div>
 
@@ -344,21 +407,21 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked1" />
+                                                        <input checked={Data.Size == "1"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="1" id="flexCheckChecked1" />
                                                         <label className="form-check-label" for="flexCheckChecked1">1</label>
                                                         <span className="badge badge-secondary float-end">120</span>
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "2"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="2" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">2</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "3"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="3" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">3</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
@@ -366,7 +429,7 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "4"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="4" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">4</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
@@ -374,7 +437,7 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "5"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="5" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">5</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
@@ -382,7 +445,7 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "6"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="6" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">6</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
@@ -390,30 +453,22 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
-                                                        <label className="form-check-label" for="flexCheckChecked2">6</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
-                                                    </div>
-
-
-
-                                                    <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "7"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="7" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">7</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
+
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "8"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="8" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">8</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
-
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "9"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="9" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">9</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
@@ -421,33 +476,37 @@ function Filter() {
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "10"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="10" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">10</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
 
-
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "11"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="11" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">11</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
+
+
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "12"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="12" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">12</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
 
 
                                                     <div className="form-check">
-                                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckChecked2" />
+                                                        <input checked={Data.Size == "13"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="13" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">13</label>
                                                         <span className="badge badge-secondary float-end">15</span>
                                                     </div>
+
+
+
 
 
                                                 </div>
@@ -527,7 +586,7 @@ function Filter() {
 
                                                                 <span className="text-danger"><s>{item.offer_is_available ? <s> ₹{item.price} </s> : ""}</s></span>
 
-                                                                <p className='text-success ms-2'>{item.offer_is_available ? <s style={{textDecoration:'none'}}>{item.offer_percentage}%off</s> : ""}</p>
+                                                                <p className='text-success ms-2'>{item.offer_is_available ? <s style={{ textDecoration: 'none' }}>{item.offer_percentage}%off</s> : ""}</p>
 
 
                                                             </div>
@@ -552,16 +611,17 @@ function Filter() {
                                                 </div>
 
 
-
-
                                             ))
-
 
 
                                             :
 
 
-                                            <h1>No Products Found</h1>
+                                            <div>
+
+                                                <img src="https://www.lookshopbd.com/website/images/no_result.gif" className='img-fluid' alt="" />
+
+                                            </div>
 
                                 }
 

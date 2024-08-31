@@ -75,9 +75,9 @@ footer {
 
 }
 
-.foot-main p{
+.foot-main p {
 
-  margin-bottom: 0.9rem !important; 
+  margin-bottom: 0.9rem !important;
 
 }
 
@@ -88,10 +88,10 @@ footer {
 }
 
 
-.foot-soc i{
+.foot-soc i {
 
   font-size: 1rem;
-  
+
 
 }
 
@@ -103,7 +103,7 @@ footer {
   font-size: 1.5rem;
   text-align: center;
   font-weight: 700;
-  
+
 
 
 }
@@ -156,7 +156,6 @@ footer {
   font-weight: 500;
   font-size: 2.2rem;
   font-family: "Bebas Neue", sans-serif
-
 }
 
 
@@ -386,6 +385,61 @@ footer {
 .icon-hover:hover i {
   color: #3b71ca !important;
 }
+
+
+
+
+/* Radio Button */
+/* Hide the default radio button */
+.custom-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox-like appearance */
+.custom-radio+.form-check-label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* The custom checkbox square */
+.custom-radio+.form-check-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  /* Checkbox border color */
+  border-radius: 4px;
+  /* Rounded edges to resemble a checkbox */
+  background-color: #fff;
+  /* Background color */
+}
+
+/* Create a checkmark when the radio button is checked */
+.custom-radio:checked+.form-check-label::before {
+  background-color: #007bff;
+  /* Background color when checked */
+  border-color: #007bff;
+}
+
+.custom-radio:checked+.form-check-label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 
 
 

@@ -77,7 +77,7 @@ function SingleProduct() {
 
     GetProducts()
 
-  }, [])
+  }, [id])
 
 
 

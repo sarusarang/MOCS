@@ -1,13 +1,76 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import "./ProductSlide.css"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
+import { GetAllProducts } from '../Services/AllApi';
+import { useNavigate } from 'react-router-dom'
+import { Skeleton } from '@mui/material';
 
 
 
 function ProductSlide() {
 
 
+
+    // Products Data
+    const [Products, SetProducts] = useState([])
+
+
+    // Loading 
+    const [Loading, SetLoading] = useState(true)
+
+
+    // Navigate 
+    const Navigate = useNavigate()
+
+
+
+
+    useEffect(() => {
+
+
+        // To get all the products
+        const GetProducts = async () => {
+
+            try {
+
+                const res = await GetAllProducts()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+                    const Result = res.data.slice(0, 6)
+                    SetProducts(Result)
+                    SetLoading(false)
+
+
+                }
+                else {
+
+
+                    console.log(res);
+                    SetLoading(true)
+
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err);
+                SetLoading(true)
+
+            }
+
+
+        }
+
+
+        GetProducts()
+
+
+    }, [])
 
 
 
@@ -37,6 +100,8 @@ function ProductSlide() {
 
 
 
+    console.log(Products);
+
 
 
 
@@ -53,381 +118,112 @@ function ProductSlide() {
 
                     <Carousel responsive={responsive}>
 
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
 
 
-                                    <div className="row">
+                        {
+
+                            Loading ?
 
 
-                                        <div className="el-wrapper">
+                                Array.from({ length: 3 }).map((item) => (
 
 
-                                            <div className="box-up"  >
+                                    <div className='me-5 mt-3'>
 
-                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
+                                        <Skeleton sx={{ height: 190 }} width={'100%'} animation="wave" variant="rectangular" />
 
-                                                <div className="img-info">
+                                        <Skeleton animation="wave" height={20} width={'100%'} style={{ marginBottom: 6, marginTop: '1rem' }} />
 
-                                                    <div className="info-inner">
+                                        <Skeleton animation="wave" height={20} width="80%" />
 
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">Footware</span>
+                                    </div>
 
-                                                        <div className='p-company'>
+                                ))
 
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                :
+
+
+                                Products.map((item) => (
+
+
+                                    <div>
+
+                                        <div className="container page-wrapper">
+
+                                            <div className="page-inner">
+
+
+                                                <div className="row">
+
+
+                                                    <div className="el-wrapper">
+
+
+                                                        <div className="box-up" onClick={() => { Navigate(`/pro/${item.id}`) }}>
+
+                                                            <img className="img-fluid img" loading='lazy' src={item.image} alt="img" style={{ height: '100%' }} />
+
+                                                            <div className="img-info">
+
+                                                                <div className="info-inner">
+
+                                                                    <span className="p-name"></span>
+                                                                    <span className="p-company">{item.name}</span>
+
+                                                                    <div className='p-company'>
+
+                                                                        <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
+                                                                        <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                        <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                        <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                        <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                                                    </div>
+
+                                                                </div>
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div className="box-down">
+
+                                                            <div className="h-bg">
+                                                                <div className="h-bg-inner"></div>
+                                                            </div>
+
+                                                            <a className="cart" >
+
+                                                                <span className="price">Just ₹{item.offer_is_available ? item.offer_price : item.price}</span>
+
+                                                                <span className="add-to-cart" >
+
+                                                                    <span className="txt" >Add in cart</span>
+
+
+                                                                </span>
+
+                                                            </a>
 
                                                         </div>
 
                                                     </div>
-
-
-
                                                 </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart" >
-
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-
-                                                        <span className="txt" >Add in cart</span>
-
-
-                                                    </span>
-
-                                                </a>
-
                                             </div>
 
                                         </div>
+
+
                                     </div>
-                                </div>
 
-                            </div>
 
 
-                        </div>
+                                ))
 
-
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-
-
-                                    <div className="row">
-
-
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up"  >
-
-                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">Footware</span>
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart" >
-
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-
-                                                        <span className="txt" >Add in cart</span>
-
-
-                                                    </span>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-
-
-                                    <div className="row">
-
-
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up"  >
-
-                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">Footware</span>
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart" >
-
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-
-                                                        <span className="txt" >Add in cart</span>
-
-
-                                                    </span>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-
-
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-
-
-                                    <div className="row">
-
-
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up"  >
-
-                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">Footware</span>
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart" >
-
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-
-                                                        <span className="txt" >Add in cart</span>
-
-
-                                                    </span>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-
-
-                                    <div className="row">
-
-
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up"  >
-
-                                                <img className="img-fluid img" loading='lazy' src="/3504 BROWN 5-8 359.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">Footware</span>
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart" >
-
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-
-                                                        <span className="txt" >Add in cart</span>
-
-
-                                                    </span>
-
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
+                        }
 
 
 
