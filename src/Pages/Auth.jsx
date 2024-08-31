@@ -196,11 +196,18 @@ function Auth() {
 
       <section className='login'>
 
-        <nav className='w-100 p-4'>
+        <nav className='w-100 p-4 d-flex justify-content-between align-items-center'>
 
           <div className='login-logo'>
 
             <img src="/Mocs Logo.png" loading='lazy' className='img-fluid' alt="img" />
+
+          </div>
+
+
+          <div>
+
+            <button className='btn btn-danger shadow-0 fw-bold'>Admin Login</button>
 
           </div>
 

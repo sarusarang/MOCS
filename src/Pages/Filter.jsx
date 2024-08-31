@@ -21,6 +21,10 @@ function Filter() {
     const [FilterData, SetFilData] = useState([])
 
 
+    // Products
+    const [Products, SetProducts] = useState([])
+
+
     // Data
     const [Data, SetData] = useState({
 
@@ -63,8 +67,7 @@ function Filter() {
                 if (res.status >= 200 && res.status <= 300) {
 
 
-                    console.log(res.data);
-
+                    SetProducts(res.data)
 
                     const Result = res.data.filter((item) => {
 
@@ -85,7 +88,6 @@ function Filter() {
                     SetFilData(Result)
 
                     SetLoading(false)
-
 
                 }
                 else {
@@ -108,11 +110,51 @@ function Filter() {
 
         }
 
+
+
+
+
+
         window.scrollTo(0, 0);
 
         GetProducts()
 
-    }, [Filter, Search, Data, minPrice, maxPrice])
+
+
+    }, [Filter, Data, minPrice, maxPrice])
+
+
+
+    // Search function
+    useEffect(() => {
+
+
+
+        const HandleSearch = () => {
+
+
+            const SearchTerm = Search.toLowerCase()
+
+            const res = Products.filter((item) => {
+
+                return Object.values(item).some(value =>
+
+                    value !== null && value !== undefined && value.toString().toLowerCase().includes(SearchTerm)
+
+                )
+
+            })
+
+            SetFilData(res)
+
+        }
+
+
+        HandleSearch()
+
+
+    }, [Search])
+
 
 
 
