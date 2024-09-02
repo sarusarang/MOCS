@@ -13,6 +13,7 @@ import Terms from './Pages/Terms'
 import Policy from './Pages/Policy'
 import Refund from './Pages/Refund'
 import ContactUs from './Pages/ContactUs'
+import BuyNow from './Pages/BuyNow'
 
 
 
@@ -33,7 +34,7 @@ function App() {
 
     const hidecheck = () => {
 
-      if (location.pathname == '/auth') {
+      if (location.pathname == '/auth' || location.pathname == '/buy') {
 
 
         sethide(true)
@@ -88,6 +89,8 @@ function App() {
         <Route path='/refund' element={<Refund />} />
 
         <Route path='/contact' element={<ContactUs />} />
+
+        <Route path='/buy' element={<BuyNow />} />
 
       </Routes>
 

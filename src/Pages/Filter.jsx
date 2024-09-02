@@ -2,10 +2,12 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { GetAllProducts } from '../Services/AllApi';
+import { GetAllProducts, AddToCart } from '../Services/AllApi';
 import { Skeleton } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { SetFilterData } from '../STORE/FilterSlice'
+import { Toast } from 'bootstrap';
+import { toast } from 'sonner';
 
 
 
@@ -62,7 +64,9 @@ function Filter() {
 
             try {
 
+
                 const res = await GetAllProducts()
+
 
                 if (res.status >= 200 && res.status <= 300) {
 
@@ -112,13 +116,9 @@ function Filter() {
 
 
 
-
-
-
         window.scrollTo(0, 0);
 
         GetProducts()
-
 
 
     }, [Filter, Data, minPrice, maxPrice])
@@ -127,7 +127,6 @@ function Filter() {
 
     // Search function
     useEffect(() => {
-
 
 
         const HandleSearch = () => {
@@ -169,6 +168,73 @@ function Filter() {
 
 
 
+    // Handle Add To Cart
+    const HandleCart = async (product_id) => {
+
+
+        try {
+
+
+            const token = sessionStorage.getItem("token")
+
+
+            if (token) {
+
+
+                const reqheader = {
+
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${token}`
+
+                }
+
+                const res = await AddToCart({product_id}, reqheader)
+
+
+                if (res.status >= 200 && res.status <=300) {
+
+                    console.log(res)
+                    toast.success("Product Added To Cart...!")
+
+
+                }
+                else {
+
+                    console.log(res)
+                    toast.warning("Error")
+
+
+                }
+
+
+            }
+            else {
+
+
+                toast.warning("Please Login First..!")
+
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+
+            }
+
+        }
+        catch (err) {
+
+
+
+            console.log(err)
+
+
+        }
+
+
+    }
 
 
 
@@ -413,7 +479,7 @@ function Filter() {
 
                                                 </div>
 
-                                                {/* <button type="button" className="btn btn-white w-100 border border-secondary">apply</button> */}
+
 
                                             </div>
 
@@ -639,8 +705,7 @@ function Filter() {
 
                                                             <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
 
-                                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
-
+                                                                <a className="btn btn-dark shadow-0 me-1" onClick={() => { HandleCart(item.id) }}>Add to cart</a>
 
                                                             </div>
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductSlide from '../Components/ProductSlide'
 import ProductSkelton from '../Components/ProductSkelton'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { GetAllProducts, GetQuanity } from '../Services/AllApi';
 
 
@@ -31,6 +31,9 @@ function SingleProduct() {
 
   // To handle Spec Tabs
   const [activeItem, setActiveItem] = useState('tab1')
+
+
+  const Navigate = useNavigate()
 
 
 
@@ -148,12 +151,6 @@ function SingleProduct() {
     setActiveItem(value);
 
   }
-
-
-
-  console.log(PriceandQuanity);
-  
-
 
 
 
@@ -327,7 +324,7 @@ function SingleProduct() {
 
 
                       {/* Buy Now */}
-                      <a className="btn btn-buynow shadow me-3 mt-3"> Buy now </a>
+                      <a className="btn btn-buynow shadow me-3 mt-3" onClick={()=>{Navigate('/buy')}}> Buy now </a>
                       <a className="btn btn-addcart shadow mt-3"> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
 
 
