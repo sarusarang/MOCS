@@ -376,6 +376,13 @@ footer {
 }
 
 
+.btn_nos.active{
+  background-color: #000;
+  color: white;
+  border: 0;
+}
+
+
 
 .icon-hover:hover {
   border-color: #3b71ca !important;
@@ -389,44 +396,7 @@ footer {
 
 
 
-/* Radio Button */
-/* Hide the default radio button */
-.custom-radio {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
 
-/* Create a custom checkbox-like appearance */
-.custom-radio+.form-check-label {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* The custom checkbox square */
-.custom-radio+.form-check-label::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #007bff;
-  /* Checkbox border color */
-  border-radius: 4px;
-  /* Rounded edges to resemble a checkbox */
-  background-color: #fff;
-  /* Background color */
-}
-
-/* Create a checkmark when the radio button is checked */
-.custom-radio:checked+.form-check-label::before {
-  background-color: #007bff;
-  /* Background color when checked */
-  border-color: #007bff;
-}
 
 .custom-radio:checked+.form-check-label::after {
   content: '';

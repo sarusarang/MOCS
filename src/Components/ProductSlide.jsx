@@ -100,7 +100,7 @@ function ProductSlide() {
 
 
 
-    console.log(Products);
+    
 
 
 

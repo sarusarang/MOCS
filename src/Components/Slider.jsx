@@ -41,7 +41,7 @@ function Slider() {
 
                         <img
                             className="d-block w-100"
-                            src="/Baner 3000x992-03.jpg"
+                            src="/Baner 3000x992-03.jpeg"
                             alt="Second slide"
                             loading='lazy'
                         />
@@ -53,7 +53,7 @@ function Slider() {
 
                         <img
                             className="d-block w-100"
-                            src="/Baner 3000x992-02.jpg"
+                            src="/Baner 3000x992-02.jpeg"
                             alt="Second slide"
                             loading='lazy'
                         />

@@ -4,7 +4,7 @@ import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductSlide from '../Components/ProductSlide'
 import ProductSkelton from '../Components/ProductSkelton'
 import { useParams } from 'react-router-dom'
-import { GetAllProducts } from '../Services/AllApi';
+import { GetAllProducts, GetQuanity } from '../Services/AllApi';
 
 
 function SingleProduct() {
@@ -16,6 +16,15 @@ function SingleProduct() {
 
   // Product Data
   const [ProductData, SetProductData] = useState({})
+
+
+  // Price and Quanity 
+  const [PriceandQuanity, SetPriceandQuanity] = useState({})
+
+
+  // all Quanity
+  const [AllQuanity, SetAllQuanity] = useState([])
+
 
   // Loading State
   const [Loading, SetLoading] = useState(true)
@@ -47,12 +56,55 @@ function SingleProduct() {
 
           SetLoading(false)
 
-          console.log(Result);
-
-
 
         }
         else {
+
+
+          console.log(res);
+          SetLoading(true)
+
+
+        }
+
+      }
+      catch (err) {
+
+        console.log(err);
+        SetLoading(true)
+
+      }
+
+
+    }
+
+
+    // Get Quanity
+    const AllQuanity = async () => {
+
+
+      try {
+
+
+        const res = await GetQuanity()
+
+        if (res.status >= 200 && res.status <= 300) {
+
+
+          const result = res.data.filter(item => item.product == id)
+
+         
+          const defaultquanity = result.find((item) => (item))
+
+
+          SetPriceandQuanity(defaultquanity)
+
+
+          SetAllQuanity(result)
+
+
+
+        } else {
 
 
           console.log(res);
@@ -77,8 +129,10 @@ function SingleProduct() {
 
     GetProducts()
 
-  }, [id])
+    AllQuanity()
 
+
+  }, [id])
 
 
 
@@ -92,8 +146,13 @@ function SingleProduct() {
     }
 
     setActiveItem(value);
+
   }
 
+
+
+  console.log(PriceandQuanity);
+  
 
 
 
@@ -106,16 +165,14 @@ function SingleProduct() {
       {
 
 
-        Loading ?
+        !AllQuanity.length || Loading ?
 
           <ProductSkelton />
 
           :
 
 
-
-
-          <section>
+          < section >
 
 
             <section className="py-5">
@@ -193,10 +250,11 @@ function SingleProduct() {
 
                         <div className='d-flex flex-row'>
 
-                          <h5 className="h5 fw-bold me-2">MRP ₹{ProductData.offer_is_available ? ProductData.offer_price : ProductData.price}</h5>
-                          <span className="text-danger"><s>{ProductData.offer_is_available ? <s> ₹{ProductData.price}</s> : ""}</s></span>
+                          <h5 className="h5 fw-bold me-2">MRP ₹{PriceandQuanity.offer_is_available ? PriceandQuanity.offer_price : PriceandQuanity.price}</h5>
 
-                          <p className='text-success ms-2'>{ProductData.offer_is_available ? <s style={{ textDecoration: 'none' }}>{ProductData.offer_percentage}%off</s> : ""}</p>
+                          <span className="text-danger"><s>{PriceandQuanity.offer_is_available ? <s> ₹{PriceandQuanity.price}</s> : ""}</s></span>
+
+                          <p className='text-success ms-2'>{PriceandQuanity.offer_is_available ? <s style={{ textDecoration: 'none' }}>{PriceandQuanity.offer_percentage}%off</s> : ""}</p>
 
 
                         </div>
@@ -245,11 +303,18 @@ function SingleProduct() {
 
                           <div className='row'>
 
-                            <button className="btn_nos me-3 mt-2 col-md-2 active">8</button>
-                            <button className="btn_nos me-3 mt-2 col-md-2 ">9</button>
-                            <button className="btn_nos me-3 mt-2 col-md-2 ">10</button>
-                            <button className="btn_nos me-3 mt-2 col-md-2 ">11</button>
-                            <button className="btn_nos me-3 mt-2 col-md-2 ">12</button>
+                            {
+
+                              AllQuanity &&
+
+                              AllQuanity.map((item) => (
+
+                                <button className={`btn_nos me-3 mt-2 col-md-2 ${PriceandQuanity.size === item.size ? 'active' : ''}`} onClick={() => { SetPriceandQuanity(item) }}>{item.size}</button>
+
+                              ))
+
+                            }
+
 
                           </div>
 
@@ -276,6 +341,8 @@ function SingleProduct() {
 
 
             </section>
+
+
 
 
 
@@ -511,18 +578,17 @@ function SingleProduct() {
             </section>
 
 
-          </section>
+
+
+          </section >
+
+
+
+
+
 
 
       }
-
-
-
-
-
-
-
-
 
 
 

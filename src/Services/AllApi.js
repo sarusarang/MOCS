@@ -26,3 +26,10 @@ export const GetAllProducts = async () => {
     return CommonApi("GET", `${base_url}/products/`)
 
 }
+
+// Get Quanity
+export const GetQuanity = async () => {
+
+    return CommonApi("GET", `${base_url}/sizes`)
+
+}
