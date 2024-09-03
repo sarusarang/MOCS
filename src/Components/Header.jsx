@@ -114,7 +114,7 @@ function Header() {
 
             <Link to={'/fil'} onClick={() => { handleFilterData("ladies") }}>Ladies</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("boys & girls") }}>Boys & Girls</Link>
+            <Link to={'/fil'} onClick={() => { handleFilterData("boys&girls") }}>Boys & Girls</Link>
 
             <Link to={'/fil'} onClick={() => { handleFilterData("kids") }}>kids</Link>
 

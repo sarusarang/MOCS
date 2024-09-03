@@ -1,11 +1,92 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
+import { GetCart } from '../Services/AllApi';
+import { toast } from 'sonner';
 
 function Cart() {
 
 
+
+
+
+    const Navigate = useNavigate()
+
+
     useEffect(() => {
+
+
+
+        // Get Cart Items
+        const GetCartItems = async () => {
+
+
+            try {
+
+
+                // Geting Token
+                const token = sessionStorage.getItem("token")
+
+
+                if (token) {
+
+
+                    const reqheader = {
+
+                        "Content-Type": "application/json",
+                        "Authorization": `Token ${token}`
+
+                    }
+
+                    const res = await GetCart(reqheader)
+
+                    if (res.status >= 200 && res.status <= 300) {
+
+
+                        toast.success("Items displayed")
+                        console.log(res);
+                        
+                    }
+                    else {
+
+                        toast.warning("Error")
+                        console.log(res);
+                        
+                    }
+
+
+
+                }
+                else {
+
+
+                    toast.warning("Please Login First..!")
+
+                    setTimeout(() => {
+
+                        Navigate('/auth')
+
+                    }, 1000);
+
+
+                }
+
+
+
+            }
+            catch (err) {
+
+
+                console.log(err);
+
+            }
+
+
+        }
+
+
+
+        GetCartItems()
 
         window.scrollTo(0, 0);
 

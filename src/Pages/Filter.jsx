@@ -2,11 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { GetAllProducts, AddToCart } from '../Services/AllApi';
+import { GetAllProducts, AddToCart, GetFilter } from '../Services/AllApi';
 import { Skeleton } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { SetFilterData } from '../STORE/FilterSlice'
-import { Toast } from 'bootstrap';
 import { toast } from 'sonner';
 
 
@@ -115,13 +114,69 @@ function Filter() {
         }
 
 
-
         window.scrollTo(0, 0);
 
         GetProducts()
 
 
-    }, [Filter, Data, minPrice, maxPrice])
+
+    }, [Filter, Data.type, minPrice, maxPrice])
+
+
+
+
+    // Size Filter
+    useEffect(() => {
+
+
+        const GetFilterData = async () => {
+
+
+            try {
+
+
+                if (Data.Size) {
+
+
+                    const res = await GetFilter(Filter, Data.Size)
+
+
+                    if (res.status >= 200 && res.status <= 300) {
+
+
+
+                        SetFilData(res.data)
+
+                    }
+                    else {
+
+                        console.log(res);
+
+
+                    }
+
+                }
+
+
+
+            }
+            catch (err) {
+
+                console.log(err);
+
+
+            }
+
+
+        }
+
+
+        GetFilterData()
+
+
+    }, [Data.Size])
+
+
 
 
 
@@ -163,7 +218,7 @@ function Filter() {
         const value = e.target.value;
         setRangeValue(value);
         setMaxPrice(value)
-    };
+    }
 
 
 
@@ -188,21 +243,19 @@ function Filter() {
 
                 }
 
-                const res = await AddToCart({product_id}, reqheader)
+                const res = await AddToCart({ product_id }, reqheader)
 
 
-                if (res.status >= 200 && res.status <=300) {
+                if (res.status >= 200 && res.status <= 300) {
 
                     console.log(res)
                     toast.success("Product Added To Cart...!")
-
 
                 }
                 else {
 
                     console.log(res)
                     toast.warning("Error")
-
 
                 }
 
@@ -227,9 +280,7 @@ function Filter() {
         catch (err) {
 
 
-
             console.log(err)
-
 
         }
 
@@ -248,7 +299,6 @@ function Filter() {
 
 
             <section className="p-3 pt-5 mb-5">
-
 
 
                 <div className="container">
@@ -330,7 +380,7 @@ function Filter() {
 
                                                     <div className="form-check">
 
-                                                        <input checked={Filter == "boys & girls"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="boys & girls" id="flexCheckChecked3" />
+                                                        <input checked={Filter == "boys & girls"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="boys&girls" id="flexCheckChecked3" />
 
                                                         <label className="form-check-label" for="flexCheckChecked3">Boys & Girls</label>
 
