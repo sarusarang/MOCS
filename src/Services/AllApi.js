@@ -7,7 +7,7 @@ const base_url = "https://server.mocs.in"
 // Login
 export const Login = async (data, header) => {
 
-    return CommonApi("POST", `${base_url}/users/login/`, data, header)
+    return CommonApi("POST", `${base_url}/api/token/`, data, header)
 
 }
 
@@ -15,7 +15,14 @@ export const Login = async (data, header) => {
 // Register
 export const Register = async (data, header) => {
 
-    return CommonApi("POST", `${base_url}/users/register/`, data, header)
+    return CommonApi("POST", `${base_url}/api/register/`, data, header)
+
+}
+
+// Google Auth
+export const GoogleAuth = async (data,header) => {
+
+    return CommonApi("POST", `${base_url}/auth/registration/`, data,header)
 
 }
 
@@ -38,18 +45,26 @@ export const GetQuanity = async () => {
 // Add to Cart
 export const AddToCart = async (data, headers) => {
 
-    console.log(data);
-    console.log(headers);
+    return CommonApi("POST", `${base_url}/cart_view/`, data, headers)
 
-    return CommonApi("POST", `${base_url}/cart_view/add_to_cart/`, data, headers)
+}
+
+// Delete Cart Items
+export const DeleteCart = async (data) => {
+
+    const params = new URLSearchParams({id:data})
+
+    return CommonApi("DELETE", `${base_url}/cart_view/?${params.toString()}`,"","")
 
 }
 
 
 // Get Cart
-export const GetCart = async (headers) => {
+export const GetCart = async (data) => {
 
-    return CommonApi("GET", `${base_url}/cart_view/`, "", headers)
+    const params = new URLSearchParams({user:data});
+
+    return CommonApi("GET", `${base_url}/cart_view/?${params.toString()}`, "", "")
 
 }
 

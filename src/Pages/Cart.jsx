@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
-import { GetCart } from '../Services/AllApi';
+import { GetCart, DeleteCart } from '../Services/AllApi';
 import { toast } from 'sonner';
 
 function Cart() {
@@ -10,12 +10,19 @@ function Cart() {
 
 
 
+
     const Navigate = useNavigate()
 
 
+    // Cart Items
+    const [CartItems, SetCartItems] = useState([])
+
+
+    const [Quanity, SetQuanity] = useState(0)
+
+
+
     useEffect(() => {
-
-
 
         // Get Cart Items
         const GetCartItems = async () => {
@@ -24,36 +31,28 @@ function Cart() {
             try {
 
 
-                // Geting Token
-                const token = sessionStorage.getItem("token")
+                // Geting user
+                const user = sessionStorage.getItem("user")
 
 
-                if (token) {
+                if (user) {
 
 
-                    const reqheader = {
-
-                        "Content-Type": "application/json",
-                        "Authorization": `Token ${token}`
-
-                    }
-
-                    const res = await GetCart(reqheader)
+                    const res = await GetCart(user)
 
                     if (res.status >= 200 && res.status <= 300) {
 
 
-                        toast.success("Items displayed")
-                        console.log(res);
-                        
+                        const CartProducts = res.data.map(item => item.product)
+
+                        SetCartItems(CartProducts)
+
                     }
                     else {
 
-                        toast.warning("Error")
                         console.log(res);
-                        
-                    }
 
+                    }
 
 
                 }
@@ -70,8 +69,6 @@ function Cart() {
 
 
                 }
-
-
 
             }
             catch (err) {
@@ -91,6 +88,50 @@ function Cart() {
         window.scrollTo(0, 0);
 
     }, [])
+
+
+
+    console.log(CartItems);
+
+    
+
+
+
+    // Cart Delete
+    const DeleteCartItems = async (data) => {
+
+        try {
+
+
+            const res = await DeleteCart(data)
+
+            if (res.status >= 200 && res.status <= 300) {
+
+                console.log(res);
+                toast.success("Product Removed From the Cart...!")
+
+            }
+            else {
+
+                console.log(res);
+                
+
+
+            }
+
+
+        }
+        catch (err) {
+
+
+            console.log(err);
+
+
+        }
+
+
+
+    }
 
 
     return (
@@ -116,30 +157,84 @@ function Cart() {
 
                                 <div className="m-4 Cart-padding">
 
+                                    {
+                                        CartItems.length > 0 &&
 
-                                    <h4 className="card-title mb-4 text-dark">Your shopping cart</h4>
-
-
-
-
+                                        <h4 className="card-title mb-4 text-dark">Your shopping cart</h4>
 
 
-                                    <div className="row gy-3 mb-4">
+                                    }
 
-                                        <div className='row mb-4 gy-3'>
 
-                                            <div className="col-lg-5">
+                                    {
 
-                                                <div className="me-lg-5">
+                                        CartItems.length > 0 ?
 
-                                                    <div className="d-flex">
 
-                                                        <img src="https://contents.mediadecathlon.com/p180505/563a4fb110e56f2b0c0c711bc8678121/p180505.jpg" className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
+                                            CartItems.map((item) => (
 
-                                                        <div className="">
 
-                                                            <a href="#" className="nav-link">Sandals</a>
-                                                            <p className="text-muted">FootWare</p>
+                                                <div className="row gy-3 mb-4">
+
+                                                    <div className='row mb-4 gy-3'>
+
+                                                        <div className="col-lg-5">
+
+                                                            <div className="me-lg-5">
+
+                                                                <div className="d-flex">
+
+                                                                    <img src={item.image} className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
+
+                                                                    <div className="">
+
+                                                                        <a href="#" className="nav-link">{item.name}</a>
+                                                                        <p className="text-muted">{item.sub_cateory}</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+
+                                                            <div className="me-5">
+
+                                                                <p className='mb-0'>Quanity</p>
+
+                                                                <select style={{ width: '100px' }} onChange={(e) => { SetQuanity(e.target.value) }} className="form-select me-4">
+                                                                    <option value={1}>1</option>
+                                                                    <option value={2}>2</option>
+                                                                    <option value={3}>3</option>
+                                                                    <option value={4}>4</option>
+                                                                    <option value={5}>5</option>
+                                                                </select>
+
+                                                            </div>
+
+
+                                                            <div className="">
+
+                                                                <text className="h6">₹{item.offer_is_available ? item.offer_price : item.price}</text> <br />
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+
+                                                            <div className="float-md-end">
+
+                                                                <a className="btn btn-danger shadow-0  text-white" onClick={() => { DeleteCartItems(item.id) }}>Remove <i class="fa-solid fa-trash-can"></i></a>
+
+                                                            </div>
 
                                                         </div>
 
@@ -148,45 +243,18 @@ function Cart() {
 
                                                 </div>
 
-                                            </div>
+                                            ))
 
 
-                                            <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                            :
 
-                                                <div className="me-5">
+                                            <div className='d-flex flex-column'>
 
-                                                    <select style={{ width: '100px' }} className="form-select me-4">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                    </select>
-
-                                                </div>
-
-
-                                                <div className="">
-
-                                                    <text className="h6">₹1000</text> <br />
-
-                                                </div>
-
+                                                <img src="https://www.buy.airoxi.com/img/empty-cart-1.png" className='img-fluid' loading='lazy' alt="img" />
 
                                             </div>
 
-
-                                            <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                                                <div className="float-md-end">
-
-                                                    <a className="btn btn-danger shadow-0  text-white">Remove <i class="fa-solid fa-trash-can"></i></a>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
+                                    }
 
 
 
@@ -199,8 +267,9 @@ function Cart() {
 
                                     <p><i className="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
                                     <p className="text-muted">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip
+                                        Due to the nature of our products and our commitment to delivering high-quality footwear,
+                                        MOCS Foot Care does not offer returns or refunds. We strongly advise all customers
+                                        to confirm the size, color, and other product details before making a payment.
                                     </p>
 
                                 </div>
@@ -227,21 +296,42 @@ function Cart() {
 
                                     <div className="d-flex justify-content-between">
                                         <p className="mb-2">Total Items:</p>
-                                        <p className="mb-2">0</p>
+                                        <p className="mb-2">{CartItems.length}</p>
                                     </div>
 
                                     <div className="d-flex justify-content-between">
 
                                         <p className="mb-2">Total Price:</p>
 
-                                        <p className="mb-2 text-success">1000</p>
+
+                                        {
+
+                                            CartItems ?
+
+                                                <p className="mb-2 text-success">
+
+                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+
+
+                                                </p>
+
+                                                :
+
+                                                0
+
+                                        }
+
+
 
 
                                     </div>
 
                                     <div className="d-flex justify-content-between">
+
                                         <p className="mb-2">Shipping Fee:</p>
+
                                         <p className="mb-2 text-success fw-bold">Free</p>
+
                                     </div>
 
 
@@ -255,7 +345,22 @@ function Cart() {
 
 
 
-                                        <p className="mb-2 text-success">1000</p>
+                                        {
+
+                                            CartItems ?
+
+                                                <p className="mb-2 text-success">
+
+                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+
+
+                                                </p>
+
+                                                :
+
+                                                0
+
+                                        }
 
 
                                     </div>

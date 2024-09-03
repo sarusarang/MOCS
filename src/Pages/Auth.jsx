@@ -4,6 +4,8 @@ import './Auth.css'
 import { Login, Register } from '../Services/AllApi'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
+import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleAuth } from '../Services/AllApi'
 
 
 function Auth() {
@@ -17,7 +19,7 @@ function Auth() {
   // TO check Login and Register Status
   const [LoginStatus, setLoginStatus] = useState(true)
 
-  
+
 
   // Login data
   const [LoginData, SetLoginData] = useState({
@@ -41,7 +43,7 @@ function Auth() {
       if (!username || !password) {
 
 
-        alert("Empty Field")
+        toast.warning("Empty Feild...!")
 
 
       }
@@ -69,18 +71,18 @@ function Auth() {
 
           toast.success("Login Success...!")
 
-          console.log(res.data.token);
+          console.log(res.data.access);
           
 
-          sessionStorage.setItem("token",res.data.token)
-          sessionStorage.setItem("user",username)
+          sessionStorage.setItem("token", res.data.access)
+          sessionStorage.setItem("user", username)
 
 
           setTimeout(() => {
 
             Navigate('/')
 
-          },1000);
+          }, 1000);
 
 
         }
@@ -184,6 +186,88 @@ function Auth() {
 
 
 
+  // Google Login 
+  const Googlelogin = useGoogleLogin({
+
+    onSuccess: async (tokenResponse) => {
+
+
+      try {
+
+        const accessToken = tokenResponse.access_token;
+
+
+        const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+
+        if (!userInfoResponse.ok) {
+
+          throw new Error('Failed to fetch user info');
+
+        }
+        else {
+
+
+          const userInfo = await userInfoResponse.json();
+
+
+          const formdata = new FormData()
+
+          formdata.append("username", userInfo.name)
+          formdata.append("email", userInfo.email)
+
+
+          const reqheader = {
+
+            "Content-Type": "multipart/form-data"
+
+          }
+
+
+          const res = await GoogleAuth(formdata, reqheader)
+
+
+          if (res.status >= 200 && res.status <= 300) {
+
+            console.log(res);
+
+            toast.success("Login Success...!")
+            
+            setTimeout(() => {
+
+              Navigate('/')
+
+            }, 1000);
+
+
+          }
+          else {
+
+            console.log(res);
+
+
+          }
+
+
+        }
+
+
+      }
+      catch (err) {
+
+        console.log(err);
+
+
+      }
+
+    }
+
+  })
+
 
 
 
@@ -210,7 +294,7 @@ function Auth() {
 
             <a href="https://server.mocs.in/admin/" target='_blank' className='btn btn-danger shadow-0 fw-bold'>Admin Login</a>
 
-           
+
 
           </div>
 
@@ -246,10 +330,14 @@ function Auth() {
 
                   <button type='submit' className='btn-login w-100 mt-3' onClick={handleLogin}>Login</button>
 
-                  <button className="google-login-btn mt-3 w-100">
+
+                  <a className="google-login-btn mt-3 w-100" onClick={Googlelogin}>
+
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon" />
                     Login with Google
-                  </button>
+
+                  </a>
+
 
                   <p className='text-center mt-3'>Don't have an account ? <a className='dont' onClick={() => { setLoginStatus(false) }}>Register</a></p>
 

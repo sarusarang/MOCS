@@ -9,6 +9,7 @@ import 'mdb-react-ui-kit'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { Store } from './STORE/Store.js'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 createRoot(document.getElementById('root')).render(
 
@@ -23,8 +24,13 @@ createRoot(document.getElementById('root')).render(
       <Provider store={Store}>
 
 
-        <App />
+        <GoogleOAuthProvider clientId="664668993068-53icks4umg9dp4p06894n60cjq346775.apps.googleusercontent.com">
 
+
+          <App />
+
+
+        </GoogleOAuthProvider>
 
 
       </Provider>

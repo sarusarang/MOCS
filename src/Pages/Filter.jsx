@@ -230,20 +230,25 @@ function Filter() {
         try {
 
 
-            const token = sessionStorage.getItem("token")
+            const user = sessionStorage.getItem("user")
 
 
-            if (token) {
+            if (user) {
 
 
                 const reqheader = {
 
-                    "Content-Type": "application/json",
-                    "Authorization": `Token ${token}`
-
+                   "Content-Type": "multipart/form-data"
+                    
                 }
 
-                const res = await AddToCart({ product_id }, reqheader)
+                const formdata = new FormData()
+
+                formdata.append("user",user)
+                formdata.append("product_id",product_id)
+
+
+                const res = await AddToCart( formdata,reqheader)
 
 
                 if (res.status >= 200 && res.status <= 300) {
@@ -255,7 +260,7 @@ function Filter() {
                 else {
 
                     console.log(res)
-                    toast.warning("Error")
+                    toast.warning(res.response.data)
 
                 }
 
@@ -380,7 +385,7 @@ function Filter() {
 
                                                     <div className="form-check">
 
-                                                        <input checked={Filter == "boys & girls"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="boys&girls" id="flexCheckChecked3" />
+                                                        <input checked={Filter == "boys&girls"} onChange={(e) => (Dispatch(SetFilterData(e.target.value)))} className="form-check-input" type="checkbox" value="boys&girls" id="flexCheckChecked3" />
 
                                                         <label className="form-check-label" for="flexCheckChecked3">Boys & Girls</label>
 
