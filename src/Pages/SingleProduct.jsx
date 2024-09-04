@@ -303,7 +303,7 @@ function SingleProduct() {
 
                               AllQuanity.map((item) => (
 
-                                <button className={`btn_nos me-3 mt-2 col-md-2 ${PriceandQuanity.size === item.size ? 'active' : ''}`} onClick={() => { SetPriceandQuanity(item) }}>{item.size}</button>
+                                <button className={`btn_nos me-3 mt-2 col-md-1 ${PriceandQuanity.size === item.size ? 'active' : ''}`} onClick={() => { SetPriceandQuanity(item) }}>{item.size}</button>
 
                               ))
 

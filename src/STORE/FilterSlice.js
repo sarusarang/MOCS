@@ -4,8 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 
     Search: "",
-    Filter: "",
-    New:false
+    Filter: ""
 
 }
 
@@ -32,12 +31,6 @@ const FilterSlice = createSlice({
             State.Search = action.payload
 
 
-        },
-        NewArrive: (State, action) => {
-
-            State.New= action.payload
-
-
         }
 
     }
@@ -47,5 +40,5 @@ const FilterSlice = createSlice({
 
 
 
-export const { SetFilterData,SetSearchData,NewArrive } = FilterSlice.actions
+export const { SetFilterData,SetSearchData} = FilterSlice.actions
 export default FilterSlice.reducer

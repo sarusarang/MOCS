@@ -45,7 +45,10 @@ export const GetQuanity = async () => {
 // Add to Cart
 export const AddToCart = async (data, headers) => {
 
-    return CommonApi("POST", `${base_url}/cart_view/`, data, headers)
+    console.log(data)
+    console.log(headers)
+
+    return CommonApi("POST", `${base_url}/user_cart/`, data, headers)
 
 }
 

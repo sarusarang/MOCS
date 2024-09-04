@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { SetFilterData, SetSearchData ,NewArrive} from '../STORE/FilterSlice'
+import { SetFilterData, SetSearchData} from '../STORE/FilterSlice'
 
 
 
@@ -134,7 +134,7 @@ function Header() {
 
             <Link to={'/fil'} onClick={handleNavClick} className='search-none'>
 
-              <input type="text" placeholder='Search' onChange={(e)=>{Dipatch(SetSearchData(e.target.value))}} className='form-control w-100' />
+              <input type="text" placeholder='Search' onChange={(e)=>{Dispatch(SetSearchData(e.target.value))}} className='form-control w-100' />
 
             </Link>
 
