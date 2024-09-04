@@ -29,7 +29,7 @@ function Filter() {
     // Data
     const [Data, SetData] = useState({
 
-        type: "", Size: ""
+        type: "", Size: "", segment: ""
 
     })
 
@@ -72,6 +72,9 @@ function Filter() {
 
                     SetProducts(res.data)
 
+                    console.log(res.data);
+
+
                     const Result = res.data.filter((item) => {
 
 
@@ -81,7 +84,8 @@ function Filter() {
                         return (
 
                             (!Filter || item.category === Filter) &&
-                            (!Data.type || item.mid_category === Data.type) &&
+                            (!Data.segment || item.mid_category === Data.segment) &&
+                            (!Data.type || item.sub_cateory === Data.type) &&
                             (price >= minPrice && price <= maxPrice)
 
                         )
@@ -120,7 +124,7 @@ function Filter() {
 
 
 
-    }, [Filter, Data.type, minPrice, maxPrice])
+    }, [Filter, Data.segment, Data.type, minPrice, maxPrice])
 
 
 
@@ -238,29 +242,29 @@ function Filter() {
 
                 const reqheader = {
 
-                   "Content-Type": "multipart/form-data"
-                    
+                    "Content-Type": "multipart/form-data"
+
                 }
 
                 const formdata = new FormData()
 
-                formdata.append("user",user)
-                formdata.append("product_id",product_id)
+                formdata.append("user", user)
+                formdata.append("product_id", product_id)
 
 
-                const res = await AddToCart( formdata,reqheader)
+                const res = await AddToCart(formdata, reqheader)
 
 
                 if (res.status >= 200 && res.status <= 300) {
 
-                    console.log(res)
+
                     toast.success("Product Added To Cart...!")
 
                 }
                 else {
 
                     console.log(res)
-                    toast.warning(res.response.data)
+                    toast.warning("Product Alredy Exist in the Cart")
 
                 }
 
@@ -428,7 +432,7 @@ function Filter() {
                                                 aria-expanded="true"
                                                 aria-controls="panelsStayOpen-collapseTwo"
                                             >
-                                                Type
+                                                Segment
                                             </button>
                                         </h2>
 
@@ -444,7 +448,7 @@ function Filter() {
 
                                                     <div className="form-check">
 
-                                                        <input className="form-check-input" checked={Data.type == "sandals and clogs"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} type="checkbox" value="sandals and clogs" id="flexCheckChecked1" />
+                                                        <input className="form-check-input" checked={Data.segment == "sandals and clogs"} onChange={(e) => { SetData({ ...Data, segment: e.target.value }) }} type="checkbox" value="sandals and clogs" id="flexCheckChecked1" />
 
 
                                                         <label className="form-check-label" for="flexCheckChecked1">SANDALS & CLOGS</label>
@@ -458,7 +462,7 @@ function Filter() {
 
                                                     <div className="form-check">
 
-                                                        <input checked={Data.type == "shoes"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="shoes" id="flexCheckChecked2" />
+                                                        <input checked={Data.segment == "shoes"} onChange={(e) => { SetData({ ...Data, segment: e.target.value }) }} className="form-check-input" type="checkbox" value="shoes" id="flexCheckChecked2" />
 
                                                         <label className="form-check-label" for="flexCheckChecked2">SHOES</label>
 
@@ -475,6 +479,126 @@ function Filter() {
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+
+
+
+                                    <div className="accordion-item">
+
+
+                                        <h2 className="accordion-header" id="headingTwo">
+                                            <button
+                                                className="accordion-button text-dark bg-light fw-bold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseTen"
+                                                aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseTwo"
+                                            >
+                                                Type
+                                            </button>
+                                        </h2>
+
+
+                                        <div id="panelsStayOpen-collapseTen" className="accordion-collapse collapse show" aria-labelledby="headingTwo">
+
+
+                                            <div className="accordion-body">
+
+
+                                                <div>
+
+
+                                                    <div className="form-check">
+
+                                                        <input className="form-check-input" checked={Data.type == "sandals"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} type="checkbox" value="sandals" id="flexCheckChecked1" />
+
+
+                                                        <label className="form-check-label" for="flexCheckChecked1">SANDALS</label>
+
+
+                                                        <span className="badge badge-secondary float-end">120</span>
+
+
+                                                    </div>
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Data.type == "flip flop"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="flip flop" id="flexCheckChecked2" />
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">FLIP FLOP</label>
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+                                                    </div>
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Data.type == "slipper"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="slipper" id="flexCheckChecked2" />
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">SLIPPER</label>
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+                                                    </div>
+
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Data.type == "clogs"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="clogs" id="flexCheckChecked2" />
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">CLOGS</label>
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+                                                    </div>
+
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Data.type == "casual"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="casual" id="flexCheckChecked2" />
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">CASUAL</label>
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+                                                    </div>
+
+
+
+                                                    <div className="form-check">
+
+                                                        <input checked={Data.type == "sports"} onChange={(e) => { SetData({ ...Data, type: e.target.value }) }} className="form-check-input" type="checkbox" value="sports" id="flexCheckChecked2" />
+
+                                                        <label className="form-check-label" for="flexCheckChecked2">SPORTS</label>
+
+                                                        <span className="badge badge-secondary float-end">15</span>
+
+                                                    </div>
+
+
+
+
+
+
+
+
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
 
 
                                     <div className="accordion-item">
