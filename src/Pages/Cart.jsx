@@ -18,7 +18,9 @@ function Cart() {
     const [CartItems, SetCartItems] = useState([])
 
 
-    const [Quanity, SetQuanity] = useState(0)
+
+    // Delete Status
+    const [DeleteStatus, SetDeleteStatus] = useState()
 
 
 
@@ -87,13 +89,10 @@ function Cart() {
 
         window.scrollTo(0, 0);
 
-    }, [])
+    }, [DeleteStatus])
 
 
 
-    console.log(CartItems);
-
-    
 
 
 
@@ -103,19 +102,19 @@ function Cart() {
         try {
 
 
-            const res = await DeleteCart(data)
+            const user = sessionStorage.getItem("user")
+
+            const res = await DeleteCart(data, user)
 
             if (res.status >= 200 && res.status <= 300) {
 
-                console.log(res);
+                SetDeleteStatus(Date.now())
                 toast.success("Product Removed From the Cart...!")
 
             }
             else {
 
                 console.log(res);
-                
-
 
             }
 
@@ -129,9 +128,33 @@ function Cart() {
 
         }
 
+    }
+
+
+    // Product Quanity Change
+    const ChangeQuanity = (newquanity, id) => {
+
+
+        SetCartItems(CartItems.map(item =>
+
+            item.id === id ? { ...item, quantity: newquanity } : item
+
+        ))
+
+    }
+
+    // Cart Total Price
+    const TotalPrice = () => {
+
+
+        return CartItems.reduce((total, item) => total + item.quantity * (item.offer_is_available ? item.offer_price : item.price), 0)
 
 
     }
+
+
+
+
 
 
     return (
@@ -184,7 +207,7 @@ function Cart() {
 
                                                                 <div className="d-flex">
 
-                                                                    <img src={item.image} className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
+                                                                    <img src={item.image} onClick={() => { Navigate(`/pro/${item.id}`) }} className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px', cursor: 'pointer' }} />
 
                                                                     <div className="">
 
@@ -207,7 +230,7 @@ function Cart() {
 
                                                                 <p className='mb-0'>Quanity</p>
 
-                                                                <select style={{ width: '100px' }} onChange={(e) => { SetQuanity(e.target.value) }} className="form-select me-4">
+                                                                <select style={{ width: '100px' }} onChange={(e) => { ChangeQuanity(e.target.value, item.id) }} className="form-select me-4">
                                                                     <option value={1}>1</option>
                                                                     <option value={2}>2</option>
                                                                     <option value={3}>3</option>
@@ -220,7 +243,7 @@ function Cart() {
 
                                                             <div className="">
 
-                                                                <text className="h6">₹{item.offer_is_available ? item.offer_price : item.price}</text> <br />
+                                                                <text className="h6">₹{item.offer_is_available ? item.offer_price * item.quantity : item.price * item.quantity}</text> <br />
 
                                                             </div>
 
@@ -310,7 +333,7 @@ function Cart() {
 
                                                 <p className="mb-2 text-success">
 
-                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+                                                    ₹{TotalPrice()}
 
 
                                                 </p>
@@ -351,7 +374,7 @@ function Cart() {
 
                                                 <p className="mb-2 text-success">
 
-                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+                                                    ₹{TotalPrice()}
 
 
                                                 </p>

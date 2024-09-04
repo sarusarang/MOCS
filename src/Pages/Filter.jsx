@@ -238,6 +238,7 @@ function Filter() {
 
 
             const user = sessionStorage.getItem("user")
+            const token = sessionStorage.getItem("token")
 
 
             if (user) {
@@ -246,12 +247,12 @@ function Filter() {
                 const reqheader = {
 
                     "Content-Type": "multipart/form-data",
-                    // "Authorization": `Bearer ${token}`
+                    "Authorization": `Bearer ${token}`
 
                 }
 
                 const formdata = new FormData()
-                formdata.append("product", product_id)
+                formdata.append("items", product_id)
                 formdata.append("user", user)
 
 

@@ -45,17 +45,15 @@ export const GetQuanity = async () => {
 // Add to Cart
 export const AddToCart = async (data, headers) => {
 
-    console.log(data)
-    console.log(headers)
-
     return CommonApi("POST", `${base_url}/user_cart/`, data, headers)
 
 }
 
-// Delete Cart Items
-export const DeleteCart = async (data) => {
 
-    const params = new URLSearchParams({id:data})
+// Delete Cart Items
+export const DeleteCart = async (data,user) => {
+
+    const params = new URLSearchParams({id:data,user:user})
 
     return CommonApi("DELETE", `${base_url}/cart_view/?${params.toString()}`,"","")
 
