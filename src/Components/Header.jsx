@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { SetFilterData, SetSearchData } from '../STORE/FilterSlice'
+import { SetFilterData, SetSearchData ,NewArrive} from '../STORE/FilterSlice'
 
 
 
@@ -29,7 +29,7 @@ function Header() {
 
 
 
-  const Dipatch = useDispatch()
+  const Dispatch = useDispatch()
 
   const Navigate = useNavigate()
 
@@ -68,7 +68,7 @@ function Header() {
 
     handleNavClick()
 
-    Dipatch(SetFilterData(data))
+    Dispatch(SetFilterData(data))
 
   }
 
@@ -108,7 +108,7 @@ function Header() {
 
             <Link to={'/'} onClick={handleNavClick}>Home</Link>
 
-            <Link to={'/fil'} onClick={() => { handleFilterData("New Arrivals") }}>New Arrivals</Link>
+            <Link to={'/fil'} onClick={() => {handleFilterData(true)}}>New Arrivals</Link>
 
             <Link to={'/fil'} onClick={() => { handleFilterData("gents") }}>Gents</Link>
 

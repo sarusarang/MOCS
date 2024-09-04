@@ -278,9 +278,6 @@ function SingleProduct() {
 
                         <dd className="col-9">Black</dd>
 
-                        <dt className="col-3">Type:</dt>
-                        <dd className="col-9">{ProductData.sub_cateory}</dd>
-
                       </div>
 
 

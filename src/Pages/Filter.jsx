@@ -15,7 +15,7 @@ function Filter() {
 
 
     // Redux States
-    const { Filter, Search } = useSelector((state) => state.Filter)
+    const { Filter, Search, New } = useSelector((state) => state.Filter)
 
 
     // Filterd Data
@@ -77,13 +77,12 @@ function Filter() {
 
                     const Result = res.data.filter((item) => {
 
-
                         const price = parseFloat(item.price)
 
 
                         return (
 
-                            (!Filter || item.category === Filter) &&
+                            (!Filter || item.category === Filter || item.new_arrival == Filter) &&
                             (!Data.segment || item.mid_category === Data.segment) &&
                             (!Data.type || item.sub_cateory === Data.type) &&
                             (price >= minPrice && price <= maxPrice)
@@ -127,6 +126,9 @@ function Filter() {
     }, [Filter, Data.segment, Data.type, minPrice, maxPrice])
 
 
+
+    console.log(Filter);
+    console.log(New);
 
 
     // Size Filter
@@ -368,7 +370,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">Gents</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                       
 
                                                     </div>
 
@@ -381,7 +383,7 @@ function Filter() {
                                                         <label className="form-check-label" for="flexCheckChecked2">Ladie's</label>
 
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                      
 
 
                                                     </div>
@@ -393,7 +395,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked3">Boys & Girls</label>
 
-                                                        <span className="badge badge-secondary float-end">35</span>
+                                                        
 
                                                     </div>
 
@@ -404,7 +406,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked3">Kids</label>
 
-                                                        <span className="badge badge-secondary float-end">35</span>
+                                                        
 
                                                     </div>
 
@@ -454,7 +456,7 @@ function Filter() {
                                                         <label className="form-check-label" for="flexCheckChecked1">SANDALS & CLOGS</label>
 
 
-                                                        <span className="badge badge-secondary float-end">120</span>
+                                                        
 
 
                                                     </div>
@@ -466,7 +468,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">SHOES</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -520,7 +522,7 @@ function Filter() {
                                                         <label className="form-check-label" for="flexCheckChecked1">SANDALS</label>
 
 
-                                                        <span className="badge badge-secondary float-end">120</span>
+                                                        
 
 
                                                     </div>
@@ -532,7 +534,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">FLIP FLOP</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -543,7 +545,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">SLIPPER</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -555,7 +557,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">CLOGS</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -567,7 +569,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">CASUAL</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -579,7 +581,7 @@ function Filter() {
 
                                                         <label className="form-check-label" for="flexCheckChecked2">SPORTS</label>
 
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
 
                                                     </div>
 
@@ -696,21 +698,21 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "1"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="1" id="flexCheckChecked1" />
                                                         <label className="form-check-label" for="flexCheckChecked1">1</label>
-                                                        <span className="badge badge-secondary float-end">120</span>
+                                                        
                                                     </div>
 
 
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "2"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="2" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">2</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "3"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="3" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">3</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -718,7 +720,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "4"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="4" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">4</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -726,7 +728,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "5"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="5" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">5</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -734,7 +736,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "6"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="6" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">6</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -742,7 +744,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "7"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="7" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">7</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -750,14 +752,14 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "8"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="8" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">8</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "9"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="9" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">9</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -765,7 +767,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "10"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="10" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">10</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -773,7 +775,7 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "11"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="11" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">11</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -782,14 +784,14 @@ function Filter() {
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "12"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="12" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">12</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
                                                     <div className="form-check">
                                                         <input checked={Data.Size == "13"} onChange={(e) => { SetData({ ...Data, Size: e.target.value }) }} className="form-check-input" type="checkbox" value="13" id="flexCheckChecked2" />
                                                         <label className="form-check-label" for="flexCheckChecked2">13</label>
-                                                        <span className="badge badge-secondary float-end">15</span>
+                                                        
                                                     </div>
 
 
@@ -861,7 +863,17 @@ function Filter() {
 
                                                     <div className="card w-100 my-2 border  hover-shadow">
 
-                                                        <img loading='lazy' src={item.image} className="card-img-top" style={{ cursor: 'pointer' }} onClick={() => { Navigate(`/pro/${item.id}`) }} />
+
+                                                        <div className='new-arrival'>
+
+                                                            <img loading='lazy' src={item.image} className="card-img-top" style={{ cursor: 'pointer' }} onClick={() => { Navigate(`/pro/${item.id}`) }} />
+
+                                                            {item.new_arrival ? <span className="badge">New Arrival</span> : ""}
+
+                                                        
+                                                        </div>
+
+
 
                                                         <div className="card-body d-flex flex-column">
 
