@@ -524,11 +524,11 @@ function SingleProduct() {
                           </MDBTabsLink>
                         </MDBTabsItem>
 
-                        <MDBTabsItem>
+                        {/* <MDBTabsItem>
                           <MDBTabsLink onClick={() => handleTabClick('tab2')} active={activeItem === 'tab2'} className=' text-dark me-3' style={{ border: '1px solid #000' }}>
                             Product Details
                           </MDBTabsLink>
-                        </MDBTabsItem>
+                        </MDBTabsItem> */}
 
 
                         <MDBTabsItem>
@@ -538,11 +538,11 @@ function SingleProduct() {
                         </MDBTabsItem>
 
 
-                        <MDBTabsItem>
+                        {/* <MDBTabsItem>
                           <MDBTabsLink onClick={() => handleTabClick('tab4')} active={activeItem === 'tab4'} className=' text-dark me-3' style={{ border: '1px solid #000' }}>
                             FAQs
                           </MDBTabsLink>
-                        </MDBTabsItem>
+                        </MDBTabsItem> */}
 
 
                         <MDBTabsItem>
@@ -572,7 +572,7 @@ function SingleProduct() {
 
 
                       {/* Product Details*/}
-                      {
+                      {/* {
 
                         activeItem == "tab2" &&
 
@@ -589,7 +589,7 @@ function SingleProduct() {
 
                         </div>
 
-                      }
+                      } */}
 
 
 
@@ -653,7 +653,7 @@ function SingleProduct() {
 
 
                       {/* Faq */}
-                      {
+                      {/* {
 
                         activeItem == "tab4" &&
 
@@ -671,7 +671,7 @@ function SingleProduct() {
 
                         </div>
 
-                      }
+                      } */}
 
 
 
