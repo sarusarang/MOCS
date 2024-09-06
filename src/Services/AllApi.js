@@ -22,7 +22,7 @@ export const Register = async (data, header) => {
 // Google Auth
 export const GoogleAuth = async (data, header) => {
 
-    return CommonApi("POST", `${base_url}/auth/registration/`, data, header)
+    return CommonApi("POST", `${base_url}/api/google-auth/`, data, header)
 
 }
 

@@ -233,7 +233,8 @@ function Auth() {
 
           if (res.status >= 200 && res.status <= 300) {
 
-            console.log(res);
+           sessionStorage.setItem("token",res.data.token)
+           sessionStorage.setItem("user",userInfo.name)
 
             toast.success("Login Success...!")
             
