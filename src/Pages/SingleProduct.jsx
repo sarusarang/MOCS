@@ -4,7 +4,7 @@ import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductSlide from '../Components/ProductSlide'
 import ProductSkelton from '../Components/ProductSkelton'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { GetAllProducts, GetQuanity, AddToCart } from '../Services/AllApi';
+import { GetAllProducts, GetQuanity, AddToCart, GetColor } from '../Services/AllApi';
 import { toast } from 'sonner'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
@@ -21,19 +21,34 @@ function SingleProduct() {
   const [ProductData, SetProductData] = useState({})
 
 
+
   // Price and Quanity 
   const [PriceandQuanity, SetPriceandQuanity] = useState({})
+
 
 
   // all Quanity
   const [AllQuanity, SetAllQuanity] = useState([])
 
 
+
   // Loading State
   const [Loading, SetLoading] = useState(true)
 
+
+
+  // All Colors
+  const [AllColors, SetAllColors] = useState([])
+
+
+
+  //Selected Color
+  const [SelectedColor, SetSelectedColor] = useState({})
+
+
   // To handle Spec Tabs
   const [activeItem, setActiveItem] = useState('tab1')
+
 
 
   const Navigate = useNavigate()
@@ -130,12 +145,54 @@ function SingleProduct() {
 
     }
 
+
+
+    // Get Prodct Color
+    const ProductColor = async () => {
+
+
+      try {
+
+        const res = await GetColor()
+
+        if (res.status >= 200 && res.status <= 300) {
+
+          const result = res.data.filter(item => item.product == id)
+
+          const defaultcolor = result.find((item) => (item))
+
+          SetAllColors(result)
+
+          SetSelectedColor(defaultcolor)
+
+        }
+        else {
+
+          console.log(res)
+
+
+        }
+
+      }
+      catch (Err) {
+
+
+        console.log(Err);
+
+
+      }
+
+
+    }
+
     window.scrollTo(0, 0);
 
 
     GetProducts()
 
     AllQuanity()
+
+    ProductColor()
 
 
   }, [id])
@@ -230,6 +287,11 @@ function SingleProduct() {
 
 
 
+
+
+
+
+
   return (
 
 
@@ -266,7 +328,7 @@ function SingleProduct() {
 
                         <Zoom>
 
-                          <img loading='lazy' style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={ProductData.image} />
+                          <img loading='lazy' style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={SelectedColor.image} />
 
                         </Zoom>
 
@@ -281,9 +343,23 @@ function SingleProduct() {
 
                     <div className="d-flex justify-content-center mb-3">
 
-                      <a data-fslightbox="mygalley" className="border mx-1 rounded-2 item-thumb" target="_blank" data-type="image">
-                        <img loading='lazy' width="60" height="60" className="rounded-2" src={ProductData.image} />
-                      </a>
+                      {
+
+                        AllColors &&
+
+                        AllColors.map((item) => (
+
+
+                          <a style={{cursor:'pointer'}} onClick={()=>{SetSelectedColor(item)}} data-fslightbox="mygalley" className="border mx-1 rounded-2 item-thumb" target="_blank" data-type="image">
+                            <img loading='lazy' width="60" height="60" className="rounded-2" src={item.image} />
+                          </a>
+
+
+                        ))
+
+
+                      }
+
 
                     </div>
 
@@ -362,7 +438,7 @@ function SingleProduct() {
 
                         <dt className="col-3">Color:</dt>
 
-                        <dd className="col-9">Black</dd>
+                        <dd className="col-9">{SelectedColor.product_color}</dd>
 
                       </div>
 

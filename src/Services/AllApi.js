@@ -50,6 +50,15 @@ export const AddToCart = async (data, headers) => {
 }
 
 
+// Add to Color
+export const GetColor = async () => {
+
+    return CommonApi("GET", `${base_url}/colors/`, "","")
+
+}
+
+
+
 // Delete Cart Items
 export const DeleteCart = async (data, user) => {
 
