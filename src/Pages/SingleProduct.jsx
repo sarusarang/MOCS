@@ -4,7 +4,10 @@ import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductSlide from '../Components/ProductSlide'
 import ProductSkelton from '../Components/ProductSkelton'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { GetAllProducts, GetQuanity } from '../Services/AllApi';
+import { GetAllProducts, GetQuanity, AddToCart } from '../Services/AllApi';
+import { toast } from 'sonner'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 
 function SingleProduct() {
@@ -96,7 +99,7 @@ function SingleProduct() {
 
           const result = res.data.filter(item => item.product == id)
 
-         
+
           const defaultquanity = result.find((item) => (item))
 
 
@@ -154,6 +157,79 @@ function SingleProduct() {
 
 
 
+
+  // Handle Add To Cart
+  const HandleCart = async (product_id) => {
+
+
+    try {
+
+
+      const user = sessionStorage.getItem("user")
+      const token = sessionStorage.getItem("token")
+
+
+      if (user) {
+
+
+        const reqheader = {
+
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+
+        }
+
+        const formdata = new FormData()
+        formdata.append("items", product_id)
+        formdata.append("user", user)
+
+
+        const res = await AddToCart(formdata, reqheader)
+
+
+        if (res.status >= 200 && res.status <= 300) {
+
+
+          toast.success("Product Added To Cart...!")
+
+        }
+        else {
+
+          console.log(res)
+          toast.warning("Product Alredy Exist in the Cart")
+
+        }
+
+
+      }
+      else {
+
+
+        toast.warning("Please Login First..!")
+
+
+        setTimeout(() => {
+
+          Navigate('/auth')
+
+        }, 1000);
+
+
+      }
+
+    }
+    catch (err) {
+
+
+      console.log(err)
+
+    }
+
+
+  }
+
+
+
   return (
 
 
@@ -187,10 +263,20 @@ function SingleProduct() {
                     <div className="border rounded-4 mb-3 d-flex justify-content-center">
 
                       <a data-fslightbox="mygalley" className="rounded-4" target="_blank" data-type="image">
-                        <img loading='lazy' style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={ProductData.image} />
+
+                        <Zoom>
+
+                          <img loading='lazy' style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={ProductData.image} />
+
+                        </Zoom>
+
+
                       </a>
 
                     </div>
+
+
+
 
 
                     <div className="d-flex justify-content-center mb-3">
@@ -321,8 +407,8 @@ function SingleProduct() {
 
 
                       {/* Buy Now */}
-                      <a className="btn btn-buynow shadow me-3 mt-3" onClick={()=>{Navigate('/buy')}}> Buy now </a>
-                      <a className="btn btn-addcart shadow mt-3"> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+                      <a className="btn btn-buynow shadow me-3 mt-3" onClick={() => { Navigate('/buy') }}> Buy now </a>
+                      <a className="btn btn-addcart shadow mt-3" onClick={() => { HandleCart(ProductData.id) }}> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
 
 
 

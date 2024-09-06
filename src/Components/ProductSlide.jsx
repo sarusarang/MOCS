@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import "./ProductSlide.css"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
-import { GetAllProducts } from '../Services/AllApi';
+import { GetAllProducts,AddToCart } from '../Services/AllApi'
 import { useNavigate } from 'react-router-dom'
-import { Skeleton } from '@mui/material';
+import { Skeleton } from '@mui/material'
+import { toast } from 'sonner'
 
 
 
@@ -76,6 +77,81 @@ function ProductSlide() {
 
 
 
+
+    // Handle Add To Cart
+    const HandleCart = async (product_id) => {
+
+
+        try {
+
+
+            const user = sessionStorage.getItem("user")
+            const token = sessionStorage.getItem("token")
+
+
+            if (user) {
+
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": `Bearer ${token}`
+
+                }
+
+                const formdata = new FormData()
+                formdata.append("items", product_id)
+                formdata.append("user", user)
+
+
+                const res = await AddToCart(formdata, reqheader)
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+                    toast.success("Product Added To Cart...!")
+
+                }
+                else {
+
+                    console.log(res)
+                    toast.warning("Product Alredy Exist in the Cart")
+
+                }
+
+
+            }
+            else {
+
+
+                toast.warning("Please Login First..!")
+
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+
+            }
+
+        }
+        catch (err) {
+
+
+            console.log(err)
+
+        }
+
+
+    }
+
+
+
+
+
     // Slider Responsive
     const responsive = {
 
@@ -100,7 +176,7 @@ function ProductSlide() {
 
 
 
-    
+
 
 
 
@@ -195,13 +271,13 @@ function ProductSlide() {
                                                                 <div className="h-bg-inner"></div>
                                                             </div>
 
-                                                            <a className="cart" >
+                                                            <a className="cart" onClick={()=>{HandleCart(item.id)}}>
 
                                                                 <span className="price">Just ₹{item.offer_is_available ? item.offer_price : item.price}</span>
 
                                                                 <span className="add-to-cart" >
 
-                                                                    <span className="txt" >Add in cart</span>
+                                                                    <span className="txt" style={{ textAlign: 'end' }}>Add in cart</span>
 
 
                                                                 </span>

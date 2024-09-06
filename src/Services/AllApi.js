@@ -20,9 +20,9 @@ export const Register = async (data, header) => {
 }
 
 // Google Auth
-export const GoogleAuth = async (data,header) => {
+export const GoogleAuth = async (data, header) => {
 
-    return CommonApi("POST", `${base_url}/auth/registration/`, data,header)
+    return CommonApi("POST", `${base_url}/auth/registration/`, data, header)
 
 }
 
@@ -51,11 +51,11 @@ export const AddToCart = async (data, headers) => {
 
 
 // Delete Cart Items
-export const DeleteCart = async (data,user) => {
+export const DeleteCart = async (data, user) => {
 
-    const params = new URLSearchParams({id:data,user:user})
+    const params = new URLSearchParams({ id: data, user: user })
 
-    return CommonApi("DELETE", `${base_url}/cart_view/?${params.toString()}`,"","")
+    return CommonApi("DELETE", `${base_url}/cart_view/?${params.toString()}`, "", "")
 
 }
 
@@ -63,7 +63,7 @@ export const DeleteCart = async (data,user) => {
 // Get Cart
 export const GetCart = async (data) => {
 
-    const params = new URLSearchParams({user:data});
+    const params = new URLSearchParams({ user: data });
 
     return CommonApi("GET", `${base_url}/cart_view/?${params.toString()}`, "", "")
 
@@ -76,5 +76,24 @@ export const GetFilter = async (categ, size) => {
     const params = new URLSearchParams({ category: categ, size: size });
 
     return CommonApi("GET", `${base_url}/filter/?${params.toString()}`, "", "")
+
+}
+
+
+
+// Add to Address
+export const PostAddress = async (data, headers) => {
+
+    return CommonApi("POST", `${base_url}/user_address/`, data, headers)
+
+}
+
+
+// Get to Address
+export const GetAddress = async (data) => {
+
+    const params = new URLSearchParams({ user: data });
+
+    return CommonApi("GET", `${base_url}/user_address/?${params.toString()}`, "", "")
 
 }

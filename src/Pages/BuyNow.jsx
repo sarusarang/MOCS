@@ -1,18 +1,127 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import './Buy.css'
+import { toast } from 'sonner'
+import { useNavigate } from 'react-router-dom'
+import { PostAddress, GetAddress } from '../Services/AllApi'
 
 function BuyNow() {
+
+
+    // Navigate 
+    const Navigate = useNavigate()
+
+
+
+    // Setting  user Address
+    const [UserAddress, SetUserAddress] = useState({
+
+        name: "", pincode: "", city: "", state: "", landmark: "", streetaddress: "", phone: ""
+
+    })
+
+    
+    // GetAddress State
+    const [GetState, SetGetState] = useState({})
+
+
+    // User Fetch Address
+    const [FetchAddress, SetFetchAddress] = useState()
+
+
+    // Selected User Address
+    const [SelectedAddress, SetSelectedAddress] = useState({})
+
+
+
+    // TO SET ADD ADDRESS STATUS
+    const [AddressStatus, SetAddressStatus] = useState(true)
 
 
 
 
     useEffect(() => {
 
+
+        const CheckUser = () => {
+
+            const User = sessionStorage.getItem("user")
+
+            if (!User) {
+
+                toast.warning("Please Login First..!")
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+            }
+        }
+
+
+
+        // Get User Address
+        const GetUserAddress = async () => {
+
+
+            try {
+
+
+                const data = sessionStorage.getItem("user")
+
+
+                const res = await GetAddress(data)
+
+                console.log(sessionStorage.getItem("username"));
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    SetFetchAddress(res.data)
+
+
+                    if (res.data) {
+
+                        const Result = res.data[0]
+
+                        SetSelectedAddress(Result)
+
+                    }
+
+                }
+                else {
+
+
+                    console.log(res)
+
+
+                }
+
+            }
+            catch (Err) {
+
+                console.log(Err);
+
+            }
+
+
+        }
+
+
+
         window.scrollTo(0, 0);
 
-    }, [])
+        CheckUser()
+
+        GetUserAddress()
+
+
+    }, [GetState])
+
+
 
 
     // Modal State
@@ -21,8 +130,84 @@ function BuyNow() {
     const handleShow = () => setShow(true);
 
 
-    // TO SET ADD ADDRESS STATUS
-    const [AddressStatus, SetAddressStatus] = useState(true)
+
+
+
+    // Add Address
+    const AddAddress = async () => {
+
+
+        try {
+
+            const { name, city, landmark, phone, pincode, state, streetaddress } = UserAddress
+
+
+            if (!name || !city || !landmark || !phone || !pincode || !state || !streetaddress) {
+
+                toast.warning("Empty Feild...!")
+
+            }
+            else {
+
+
+                const formdata = new FormData()
+
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+
+                }
+
+
+                formdata.append("name", name)
+                formdata.append("user", sessionStorage.getItem("user"))
+                formdata.append("city", city)
+                formdata.append("landmark", landmark)
+                formdata.append("phone", phone)
+                formdata.append("pincode", pincode)
+                formdata.append("state", state)
+                formdata.append("streetaddress", streetaddress)
+
+
+
+                const res = await PostAddress(formdata, reqheader)
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+                    console.log(res);
+                    SetAddressStatus(true)
+                    SetUserAddress("")
+                    SetGetState(res.data)
+                    toast.success("Address Added Successfully...!")
+
+
+                } else {
+
+
+                    console.log(res);
+
+
+                }
+
+
+            }
+
+        }
+
+        catch (Err) {
+
+            console.log(Err);
+
+        }
+
+    }
+
+
+
+
 
 
 
@@ -50,12 +235,24 @@ function BuyNow() {
 
 
 
+                                {
 
-                                <address >
-                                    Delivery to <span className='fw-bold'>Kannur 670622</span><br />
-                                    kjbfnsdkjfnkjsdf
+                                    SelectedAddress ?
 
-                                </address>
+
+                                        <address >
+
+                                            Delivery to <span className='fw-bold'>{SelectedAddress.city} {SelectedAddress.pincode}</span><br />
+                                            {SelectedAddress.streetaddress}
+
+                                        </address>
+
+                                        :
+
+                                        <h4>Add Address</h4>
+
+                                }
+
 
 
 
@@ -185,22 +382,32 @@ function BuyNow() {
                                 <div className='Address-scroll col-12'>
 
 
+                                    {
+
+                                        FetchAddress &&
 
 
+                                        FetchAddress.map((item) => (
 
-                                    <div className='d-flex mb-4'>
 
-                                        <input type="radio" value="" name='a' className='large-radio' />
+                                            <div className='d-flex mb-4'>
 
-                                        <div className='ms-3'>
+                                                <input type="radio" onClick={()=>{SetSelectedAddress(item),handleClose()}} value="" name='a' className='large-radio' style={{cursor:'pointer'}} />
 
-                                            <p className='mb-0 fw-bold'>Name</p>
-                                            <p className='mb-0'>Kannur,Kerala 670622</p>
+                                                <div className='ms-3'>
 
-                                        </div>
+                                                    <p className='mb-0 fw-bold'>{item.name}</p>
+                                                    <p className='mb-0'>{item.city},{item.state} {item.pincode}</p>
 
-                                    </div>
+                                                </div>
 
+                                            </div>
+
+
+                                        ))
+
+
+                                    }
 
 
                                 </div>
@@ -231,26 +438,26 @@ function BuyNow() {
 
                                 <form onSubmit={(e) => { e.preventDefault() }}>
 
-                                    <input type="text" placeholder='Name' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, name: e.target.value }) }} placeholder='Name' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='Please enter a 6-digit pincode' className='form-control mb-3' maxlength="6" pattern="\d{6}" />
+                                    <input type="tel" onChange={(e) => { SetUserAddress({ ...UserAddress, pincode: e.target.value }) }} placeholder='Please enter a 6-digit pincode' className='form-control mb-3' maxlength="6" pattern="\d{6}" inputMode='numeric' onInput={(e) => { e.target.value = e.target.value.replace(/\D/, '') }} />
 
-                                    <input type="text" placeholder='City' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, city: e.target.value }) }} placeholder='City' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='State' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, state: e.target.value }) }} placeholder='State' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='Landmark' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, landmark: e.target.value }) }} placeholder='Landmark' className='form-control mb-3' />
 
-                                    <textarea name="" className='form-control mb-3' placeholder='Enter your Street address' id=""></textarea>
+                                    <textarea name="" onChange={(e) => { SetUserAddress({ ...UserAddress, streetaddress: e.target.value }) }} className='form-control mb-3' placeholder='Enter your Street address' id=""></textarea>
 
-                                    <input type="text" placeholder='Phone' className='form-control mb-3' maxlength="10" pattern="\d{10}" />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, phone: e.target.value }) }} placeholder='Phone' className='form-control mb-3' maxlength="10" pattern="\d{10}" inputMode='numeric' onInput={(e) => { e.target.value = e.target.value.replace(/\D/, '') }} />
 
 
                                     <div className='pb-3 mt-4'>
 
                                         <button onClick={() => { SetAddressStatus(true) }} type='submit' className='btn btn-address ms-2 w-25'>Close</button>
 
-                                        <button onClick={() => { SetAddressStatus(true) }} type='submit' className='btn btn-address ms-2 w-50'>Save</button>
+                                        <button onClick={() => { AddAddress() }} type='submit' className='btn btn-address ms-2 w-50'>Save</button>
 
                                     </div>
 

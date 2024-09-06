@@ -14,32 +14,32 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 createRoot(document.getElementById('root')).render(
 
 
-  <StrictMode>
 
 
 
-    <BrowserRouter>
+
+  <BrowserRouter>
 
 
-      <Provider store={Store}>
+    <Provider store={Store}>
 
 
-        <GoogleOAuthProvider clientId="664668993068-53icks4umg9dp4p06894n60cjq346775.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="664668993068-53icks4umg9dp4p06894n60cjq346775.apps.googleusercontent.com">
 
 
-          <App />
+        <App />
 
 
-        </GoogleOAuthProvider>
+      </GoogleOAuthProvider>
 
 
-      </Provider>
+    </Provider>
 
 
 
-    </BrowserRouter>
+  </BrowserRouter>
 
-  </StrictMode>,
+
 
 
 )
