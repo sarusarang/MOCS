@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
 import { Login, Register } from '../Services/AllApi'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { useGoogleLogin } from '@react-oauth/google';
 import { GoogleAuth } from '../Services/AllApi'
@@ -72,7 +72,7 @@ function Auth() {
           toast.success("Login Success...!")
 
           console.log(res.data.access);
-          
+
 
           sessionStorage.setItem("token", res.data.access)
           sessionStorage.setItem("user", username)
@@ -233,11 +233,11 @@ function Auth() {
 
           if (res.status >= 200 && res.status <= 300) {
 
-           sessionStorage.setItem("token",res.data.token)
-           sessionStorage.setItem("user",userInfo.name)
+            sessionStorage.setItem("token", res.data.token)
+            sessionStorage.setItem("user", userInfo.name)
 
             toast.success("Login Success...!")
-            
+
             setTimeout(() => {
 
               Navigate('/')
@@ -285,16 +285,12 @@ function Auth() {
 
           <div className='login-logo'>
 
-            <img src="/Mocs Logo.png" loading='lazy' className='img-fluid' alt="img" />
+            <Link to={'/'}>
 
-          </div>
-
-
-          <div>
+              <img src="/Mocs Logo.png" loading='lazy' className='img-fluid' alt="img" />
 
 
-            <a href="https://server.mocs.in/admin/" target='_blank' className='btn btn-danger shadow-0 fw-bold'>Admin Login</a>
-
+            </Link>
 
 
           </div>
@@ -340,7 +336,7 @@ function Auth() {
                   </a>
 
 
-                  <p className='text-center mt-3'>Don't have an account ? <a className='dont' onClick={() => { setLoginStatus(false) }}>Register</a></p>
+                  <p className='text-center mt-3'>Don't have an account ? <a className='dont' onClick={() => { setLoginStatus(false) }}>Register Now</a></p>
 
                 </form>
 

@@ -185,6 +185,10 @@ function SingleProduct() {
 
     }
 
+
+
+
+
     window.scrollTo(0, 0);
 
 
@@ -300,7 +304,7 @@ function SingleProduct() {
       {
 
 
-        !AllQuanity.length || Loading ?
+        !AllQuanity.length || !AllColors.length ||  Loading ?
 
           <ProductSkelton />
 

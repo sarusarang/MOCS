@@ -24,6 +24,9 @@ const FilterSlice = createSlice({
 
             state.Filter = action.payload 
 
+            console.log(action.payload);
+            
+
         },
 
         SetSearchData: (State, action) => {

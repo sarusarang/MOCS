@@ -27,9 +27,9 @@ function HeroThree() {
         <>
 
 
-            <section className='pt-5 pb-5' style={{borderTop:'3px dotted #ccc'}}>
+            <section className='pt-5 pb-5' style={{borderTop:'3px dotted #ccc'}} id='about'>
 
-                <div className='container hero-3 p-5'>
+                <div className='container hero-3 p-5' >
 
 
                     <div className='row'>

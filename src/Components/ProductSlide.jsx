@@ -277,7 +277,7 @@ function ProductSlide() {
 
                                                                 <span className="add-to-cart" >
 
-                                                                    <span className="txt" style={{ textAlign: 'end' }}>Add in cart</span>
+                                                                    <span className="txt" style={{marginLeft:'8rem'}}>Add in cart</span>
 
 
                                                                 </span>

@@ -1,7 +1,10 @@
 import React from 'react'
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from 'react';
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { SetFilterData } from '../STORE/FilterSlice'
+import { Link } from 'react-router-dom'
 
 function Hero() {
 
@@ -17,6 +20,18 @@ function Hero() {
         })
 
     }, []);
+
+
+    const Dispatch = useDispatch()
+
+
+
+    // Filter data handle
+    const handleFilterData = (data) => {
+
+        Dispatch(SetFilterData(data))
+
+    }
 
 
 
@@ -39,9 +54,16 @@ function Hero() {
                     <div className='row'>
 
 
-                        <div className='col-md-4 hero-box ' data-aos="fade-right" data-aos-duration="600">
+                        <div className='col-md-4 hero-box ' data-aos="fade-right" data-aos-duration="600" >
 
-                            <img src="/Hero-1.jpeg" loading='lazy' className='img-fluid' alt="img" />
+
+                            <Link to={'/fil'}>
+
+                                <img src="/Hero-1.jpeg" loading='lazy' className='img-fluid' alt="img" onClick={() => { handleFilterData("ladies") }} style={{ cursor: 'pointer' }} />
+
+                            </Link>
+
+
 
                             <div className='hero-text-box'>
 
@@ -53,9 +75,15 @@ function Hero() {
 
 
 
-                        <div className='col-md-4 hero-box' data-aos="fade-up" data-aos-duration="600">
+                        <div className='col-md-4 hero-box' data-aos="fade-up" data-aos-duration="600" >
 
-                            <img src="/Hero-2.jpeg" loading='lazy' className='img-fluid' alt="img" />
+                            <Link to={'/fil'}>
+
+                                <img src="/Hero-2.jpeg" loading='lazy' className='img-fluid' alt="img" onClick={() => { handleFilterData("gents") }} style={{ cursor: 'pointer' }} />
+
+                            </Link>
+
+
 
                             <div className='hero-text-box'>
 
@@ -67,9 +95,14 @@ function Hero() {
 
 
 
-                        <div className='col-md-4 hero-box' data-aos="fade-left" data-aos-duration="600">
+                        <div className='col-md-4 hero-box' data-aos="fade-left" data-aos-duration="600" >
 
-                            <img src="/Hero-3.jpg" loading='lazy' className='img-fluid' alt="img" />
+
+                            <Link to={'/fil'}>
+
+                                <img src="/Hero-3.jpg" loading='lazy' className='img-fluid' alt="img" onClick={() => { handleFilterData("kids") }} style={{ cursor: 'pointer' }} />
+
+                            </Link>
 
 
                             <div className='hero-text-box'>

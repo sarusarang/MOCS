@@ -74,9 +74,10 @@ function Footer() {
                   COMPANY INFO
                 </h6>
 
-                <p>
+                <p >
 
-                  <Link to={'/'} className='text-reset foot-link'>About Us</Link>
+
+                  <a href="#about" className='text-reset foot-link'>About Us</a>
 
                 </p>
 
@@ -113,7 +114,7 @@ function Footer() {
 
                 <p>
 
-                  <Link to={'/'} className='text-reset foot-link'>Online Shopping Policy</Link>
+                  <Link to={'/refund'} className='text-reset foot-link'>Online Shopping Policy</Link>
 
                 </p>
 
@@ -154,7 +155,7 @@ function Footer() {
 
                 <p>
 
-                  <Link to={'/'} className='text-reset foot-link'>Store Locator</Link>
+                  <Link to={'/contact'} className='text-reset foot-link'>Store Locator</Link>
 
                 </p>
 
@@ -214,32 +215,13 @@ function Footer() {
         </section>
 
 
-        <div className="text-center p-4 pb-0" style={{ color: '#ccc' }}>
 
-
-          <p> Copyright © 2024 Mocs All Rights Reserved. </p>
-
-          <p>Powered by <a href="" className='foot-link'>exmedia.in</a></p>
-
-
-          <div className='d-flex justify-content-center'>
-
-            <p><Link className='nav-link foot-link me-3' to={'/policy'}> Privacy & Policy</Link></p>
-
-            <p><Link className='nav-link foot-link me-3' to={'/terms'}>Terms & Conditions</Link></p>
-
-            <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
-
-          </div>
-
-
-        </div>
 
 
 
 
         {/* Socail Media Links */}
-        <section className="d-flex justify-content-center pb-3 foot-soc">
+        <section className="d-flex justify-content-center mt-3 foot-soc">
 
           <a data-mdb-ripple-init className="btn m-1" href="https://www.facebook.com/mocsfootcarecalicut/" role="button" target='_blank' style={{ borderRadius: '8rem' }}
           ><i className="fab fa-facebook-f text-white"></i
@@ -270,6 +252,30 @@ function Footer() {
 
 
         </section>
+
+
+
+
+        <div className="text-center p-4 pb-0" style={{ color: '#ccc' }}>
+
+
+          <p> Copyright © 2024 Mocs All Rights Reserved. </p>
+
+          <p>Powered by <a href="https://exmedia.in" target='_blank' className='foot-link'>exmedia.in</a></p>
+
+
+          <div className='d-flex justify-content-center'>
+
+            <p><Link className='nav-link foot-link me-3' to={'/policy'}> Privacy & Policy</Link></p>
+
+            <p><Link className='nav-link foot-link me-3' to={'/terms'}>Terms & Conditions</Link></p>
+
+            <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
+
+          </div>
+
+
+        </div>
 
       </footer>
 
