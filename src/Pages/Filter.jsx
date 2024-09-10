@@ -2,11 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { GetAllProducts, AddToCart, GetFilter } from '../Services/AllApi';
+import { GetAllProducts,GetFilter } from '../Services/AllApi';
 import { Skeleton } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { SetFilterData } from '../STORE/FilterSlice'
-import { toast } from 'sonner';
+
 
 
 
@@ -55,7 +55,6 @@ function Filter() {
 
 
     useEffect(() => {
-
 
 
         // To get all the products
@@ -230,77 +229,7 @@ function Filter() {
 
 
 
-    // Handle Add To Cart
-    const HandleCart = async (product_id) => {
-
-
-        try {
-
-
-            const user = sessionStorage.getItem("user")
-            const token = sessionStorage.getItem("token")
-
-
-            if (user) {
-
-
-                const reqheader = {
-
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": `Bearer ${token}`
-
-                }
-
-                const formdata = new FormData()
-                formdata.append("items", product_id)
-                formdata.append("user", user)
-
-
-                const res = await AddToCart(formdata, reqheader)
-
-
-                if (res.status >= 200 && res.status <= 300) {
-
-
-                    toast.success("Product Added To Cart...!")
-
-                }
-                else {
-
-                    console.log(res)
-                    toast.warning("Product Alredy Exist in the Cart")
-
-                }
-
-
-            }
-            else {
-
-
-                toast.warning("Please Login First..!")
-
-
-                setTimeout(() => {
-
-                    Navigate('/auth')
-
-                }, 1000);
-
-
-            }
-
-        }
-        catch (err) {
-
-
-            console.log(err)
-
-        }
-
-
-    }
-
-
+    
 
     const ClearAll = () => {
 
@@ -607,17 +536,16 @@ function Filter() {
 
 
 
-
-
-
-
-
                                                 </div>
 
 
 
                                             </div>
+
+
                                         </div>
+
+                                        
                                     </div>
 
 
@@ -914,11 +842,11 @@ function Filter() {
 
                                                             <p className="card-text">{item.description}</p>
 
-                                                            <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                                            {/* <div className="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
 
-                                                                <a className="btn btn-dark shadow-0 me-1" onClick={() => { HandleCart(item.id) }}>Add to cart</a>
+                                                                <a className="btn btn-dark shadow-0 me-1">Add to cart</a>
 
-                                                            </div>
+                                                            </div> */}
 
 
                                                         </div>
